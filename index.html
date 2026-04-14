@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  
+  <!-- SEO & Social Meta (WhatsApp / Facebook) -->
+  <title>RB13 Sports · Tienda Deportiva en Maracaibo</title>
+  <meta name="description" content="Zapatos de fútbol sala, gorras, camisetas y más. Envíos inmediatos en Maracaibo. Paga con Zelle, Pago Móvil, Efectivo o Banesco Panamá.">
+  <meta name="theme-color" content="#131921">
+  
+  <!-- Open Graph (vista previa al compartir) -->
+  <meta property="og:title" content="RB13 Sports Maracaibo">
+  <meta property="og:description" content="La mejor tienda deportiva de Maracaibo. Envíos inmediatos. ¡Pide por WhatsApp!">
+  <meta property="og:image" content="https://picsum.photos/id/1043/400/400">
+  <meta property="og:url" content="https://rb13sports.github.io">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="data:application/manifest+json,{name:'RB13 Sports',short_name:'RB13',icons:[{src:'https://picsum.photos/192/192?random=10',sizes:'192x192',type:'image/png'},{src:'https://picsum.photos/512/512?random=10',sizes:'512x512',type:'image/png'}],theme_color:'%23131921',background_color:'%23ffffff',display:'standalone',start_url:'/'}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="https://picsum.photos/180/180?random=20">
+  
+  <!-- Fuentes e Iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #e3e6e6;
+      color: #0f1111;
+      line-height: 1.4;
+    }
+
+    /* ----- BARRA AMAZON (centrada) ----- */
+    .navbar {
+      background-color: #131921;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 8px 20px;
+      gap: 10px;
+      flex-wrap: wrap;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      background-color: #febd69;
+      color: #131921;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 12px;
+      margin-left: 6px;
+    }
+
+    .deliver-to {
+      display: none;
+      color: #ccc;
+      font-size: 0.75rem;
+    }
+
+    .deliver-to .location-line {
+      font-weight: 700;
+      color: white;
+    }
+
+    .search-container {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      height: 42px;
+    }
+
+    .search-container input {
+      flex: 1;
+      border: none;
+      padding: 0 15px;
+      font-size: 1rem;
+      border-radius: 6px 0 0 6px;
+      outline: none;
+    }
+
+    .search-btn {
+      background-color: #febd69;
+      border: none;
+      width: 48px;
+      border-radius: 0 6px 6px 0;
+      cursor: pointer;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
+    .nav-item {
+      color: white;
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+
+    .nav-item .nav-line2 {
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .cart-icon {
+      font-size: 1.4rem;
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      left: 14px;
+      background-color: #febd69;
+      color: #131921;
+      font-weight: 700;
+      font-size: 0.75rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .subnav {
+      background-color: #232f3e;
+      color: white;
+      padding: 8px 20px;
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .subnav a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Banner tasa */
+    .rate-banner {
+      background: #1b4f72;
+      color: white;
+      text-align: center;
+      padding: 8px 20px;
+      font-weight: 500;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    /* ----- FILTROS (centrado) ----- */
+    .filter-bar {
+      max-width: 1500px;
+      margin: 20px auto 10px;
+      padding: 0 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: white;
+      border: 1px solid #d5d9d9;
+      border-radius: 20px;
+      padding: 8px 18px;
+      cursor: pointer;
+    }
+
+    .filter-btn.active {
+      background: #131921;
+      color: white;
+    }
+
+    /* ----- CONTENIDO PRINCIPAL (centrado con padding) ----- */
+    .main-content {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 20px 30px;
+    }
+
+    .category-title {
+      font-size: 1.6rem;
+      margin: 30px 0 16px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 6px;
+    }
+
+    /* ----- GRID DE PRODUCTOS (centrado y con auto-fit) ----- */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      justify-content: center;  /* Asegura que las tarjetas queden centradas si hay menos columnas */
+    }
+
+    /* Tarjeta */
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      padding: 12px 10px 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: all 0.15s;
+      border: 1px solid #f0f0f0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .delivery-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #007185;
+      color: white;
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      border-radius: 20px;
+      z-index: 2;
+    }
+
+    /* Galería */
+    .product-gallery {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1/1;
+      margin-bottom: 10px;
+    }
+
+    .main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #f8f8f8;
+    }
+
+    .thumbnail-container {
+      display: flex;
+      gap: 5px;
+      margin-top: 6px;
+      justify-content: center;
+    }
+
+    .thumbnail {
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      object-fit: cover;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    .thumbnail.active {
+      opacity: 1;
+      border: 2px solid #febd69;
+    }
+
+    .product-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin: 8px 0 4px;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .stars {
+      color: #ffa41c;
+      margin-right: 6px;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 6px 0 10px;
+    }
+
+    .btn-whatsapp {
+      background-color: #FFD814;
+      color: #0f1111;
+      font-weight: 600;
+      padding: 10px 6px;
+      border-radius: 24px;
+      cursor: pointer;
+      text-align: center;
+      border: none;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-top: auto;
+    }
+
+    .btn-whatsapp i {
+      color: #25D366;
+      margin-right: 6px;
+    }
+
+    /* Botón flotante */
+    .float-wa {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      z-index: 999;
+      text-decoration: none;
+    }
+
+    /* Sidebar redes */
+    .social-sidebar {
+      position: fixed;
+      left: 20px;
+      bottom: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 998;
+    }
+
+    .social-sidebar a {
+      color: white;
+      background: #131921;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .social-sidebar .fa-instagram { background: #d62976; }
+    .social-sidebar .fa-tiktok { background: #000000; }
+    .social-sidebar .fa-facebook-f { background: #1877f2; }
+
+    /* Métodos de pago (centrado) */
+    .payment-methods {
+      background: white;
+      max-width: 1500px;
+      margin: 40px auto 0;
+      padding: 24px 20px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .payment-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      font-size: 2rem;
+    }
+
+    .payment-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #232f3e;
+      color: #ddd;
+      padding: 24px 20px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .footer-social i {
+      font-size: 1.8rem;
+      margin: 0 10px;
+      color: white;
+    }
+
+    /* Responsive: en pantallas grandes se mantiene centrado */
+    @media (min-width: 600px) {
+      .deliver-to { display: flex; }
+    }
+
+    /* Ajuste para evitar que el contenido quede pegado en móviles */
+    @media (max-width: 480px) {
+      .navbar { padding: 8px 12px; }
+      .subnav { padding: 8px 12px; }
+      .filter-bar { padding: 0 12px; }
+      .main-content { padding: 0 12px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Barra superior -->
+<header>
+  <div class="navbar">
+    <div class="logo"><a href="#">RB13 Sports <span>Maracaibo</span></a></div>
+    <div class="deliver-to"><i class="fas fa-map-marker-alt"></i> Enviar a Maracaibo</div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Buscar en RB13 Sports...">
+      <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="nav-item"><span>Hola</span><span class="nav-line2">Cuenta</span></a>
+      <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+    </div>
+  </div>
+  <div class="subnav">
+    <a href="#main-content" onclick="scrollToMain()">Todo</a>
+    <a href="#ofertas" onclick="scrollToOfertas()">Ofertas</a>
+    <a href="#" onclick="alert('Servicio al Cliente: +58 414-0000000')">Servicio al Cliente</a>
+    <a href="https://forms.gle/ejemplo" target="_blank">Vender</a>
+  </div>
+</header>
+
+<!-- Banner tasa del día -->
+<div class="rate-banner" id="rateBanner">
+  <span id="rateText">💵 Tasa del día: Cargando...</span>
+</div>
+
+<!-- Filtros -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Todos</button>
+  <button class="filter-btn" data-filter="Zapatos">👟 Zapatos</button>
+  <button class="filter-btn" data-filter="Gorras">🧢 Gorras</button>
+  <button class="filter-btn" data-filter="Camisetas">👕 Camisetas</button>
+</div>
+
+<!-- Contenido principal -->
+<main class="main-content" id="main-content"></main>
+
+<!-- Métodos de pago -->
+<div class="payment-methods">
+  <h3><i class="fas fa-credit-card"></i> MÉTODOS DE PAGO EN VENEZUELA</h3>
+  <div class="payment-icons">
+    <div class="payment-item"><i class="fas fa-exchange-alt" style="color:#6d1ed4;"></i> Zelle</div>
+    <div class="payment-item"><i class="fas fa-mobile-alt" style="color:#1e88e5;"></i> Pago Móvil</div>
+    <div class="payment-item"><i class="fas fa-money-bill-wave" style="color:#2e7d32;"></i> Efectivo</div>
+    <div class="payment-item"><i class="fas fa-university" style="color:#0d47a1;"></i> Banesco Panamá</div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-social">
+    <a href="https://instagram.com/rb13sports" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/@rb13sports" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://facebook.com/rb13sports" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  </div>
+  <p>© 2026 RB13 Sports - Maracaibo, Venezuela</p>
+</footer>
+
+<!-- Botón flotante WhatsApp -->
+<a href="#" class="float-wa" id="floatWhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<!-- Sidebar redes -->
+<div class="social-sidebar">
+  <a href="https://instagram.com/rb13sports" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://tiktok.com/@rb13sports" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="https://facebook.com/rb13sports" target="_blank"><i class="fab fa-facebook-f"></i></a>
+</div>
+
+<script>
+  (function(){
+    "use strict";
+
+    const WHATSAPP_PHONE = "584140000000"; // CAMBIAR
+
+    let tasaUSD = 38.50;
+    function updateRateBanner() {
+      document.getElementById('rateText').innerHTML = `💵 Tasa del día: Bs. ${tasaUSD.toFixed(2)} / USD · Aceptamos Zelle, Pago Móvil y más`;
+    }
+    updateRateBanner();
+
+    const products = [
+      { id:1, name:'Nike Mercurial Sala', price:45.99, rating:4.7, reviews:128, category:'Zapatos',
+        images: ['https://picsum.photos/id/100/300/300','https://picsum.photos/id/101/300/300','https://picsum.photos/id/102/300/300'] },
+      { id:2, name:'Adidas Predator Sala', price:52.50, rating:4.8, reviews:93, category:'Zapatos',
+        images: ['https://picsum.photos/id/103/300/300','https://picsum.photos/id/104/300/300','https://picsum.photos/id/105/300/300'] },
+      { id:3, name:'New Era Yankees', price:22.99, rating:4.6, reviews:210, category:'Gorras',
+        images: ['https://picsum.photos/id/200/300/300','https://picsum.photos/id/201/300/300','https://picsum.photos/id/202/300/300'] },
+      { id:4, name:'Adidas Originals Trefoil', price:18.50, rating:4.5, reviews:87, category:'Gorras',
+        images: ['https://picsum.photos/id/203/300/300','https://picsum.photos/id/204/300/300','https://picsum.photos/id/205/300/300'] },
+      { id:5, name:'Venezuela Vinotinto 2026', price:39.99, rating:4.9, reviews:312, category:'Camisetas',
+        images: ['https://picsum.photos/id/300/300/300','https://picsum.photos/id/301/300/300','https://picsum.photos/id/302/300/300'] },
+      { id:6, name:'FC Barcelona 2025/26', price:49.50, rating:4.8, reviews:278, category:'Camisetas',
+        images: ['https://picsum.photos/id/303/300/300','https://picsum.photos/id/304/300/300','https://picsum.photos/id/305/300/300'] },
+      { id:7, name:'Puma Future Z Sala', price:39.99, rating:4.5, reviews:67, category:'Zapatos',
+        images: ['https://picsum.photos/id/106/300/300','https://picsum.photos/id/107/300/300','https://picsum.photos/id/108/300/300'] },
+      { id:8, name:'Nike Heritage86', price:19.99, rating:4.7, reviews:156, category:'Gorras',
+        images: ['https://picsum.photos/id/206/300/300','https://picsum.photos/id/207/300/300','https://picsum.photos/id/208/300/300'] },
+    ];
+
+    let currentFilter = 'all';
+    let searchTerm = '';
+    const app = document.getElementById('main-content');
+
+    function starsHTML(rating) {
+      const full = '★', empty = '☆';
+      let s = '';
+      for (let i=1; i<=5; i++) s += (i <= Math.round(rating)) ? full : empty;
+      return s;
+    }
+
+    function buildWhatsAppLink(product) {
+      const msg = `¡Hola RB13 Sports! 👋 Me interesa: ${product.name} - Precio: $${product.price}. ¿Tienen disponibilidad en Maracaibo?`;
+      return `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(msg)}`;
+    }
+
+    function createCard(product) {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.dataset.category = product.category;
+
+      const galleryDiv = document.createElement('div');
+      galleryDiv.className = 'product-gallery';
+      
+      const mainImg = document.createElement('img');
+      mainImg.className = 'main-image';
+      mainImg.src = product.images[0];
+      mainImg.alt = product.name;
+      mainImg.loading = 'lazy';
+      
+      const thumbDiv = document.createElement('div');
+      thumbDiv.className = 'thumbnail-container';
+      
+      product.images.forEach((url, idx) => {
+        const thumb = document.createElement('img');
+        thumb.className = 'thumbnail' + (idx === 0 ? ' active' : '');
+        thumb.src = url;
+        thumb.alt = `vista ${idx+1}`;
+        thumb.loading = 'lazy';
+        thumb.addEventListener('click', (e) => {
+          e.stopPropagation();
+          mainImg.src = url;
+          thumbDiv.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+        });
+        thumbDiv.appendChild(thumb);
+      });
+      
+      galleryDiv.addEventListener('mouseenter', () => {
+        let currentIdx = 0;
+        const thumbs = thumbDiv.querySelectorAll('.thumbnail');
+        thumbs.forEach((t, i) => { if(t.classList.contains('active')) currentIdx = i; });
+        const nextIdx = (currentIdx + 1) % product.images.length;
+        mainImg.src = product.images[nextIdx];
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumbs[nextIdx].classList.add('active');
+      });
+      
+      galleryDiv.appendChild(mainImg);
+      galleryDiv.appendChild(thumbDiv);
+      card.appendChild(galleryDiv);
+      
+      const badge = document.createElement('div');
+      badge.className = 'delivery-badge';
+      badge.innerHTML = '<i class="fas fa-truck"></i> Envío Inmediato';
+      card.appendChild(badge);
+      
+      const title = document.createElement('div');
+      title.className = 'product-title';
+      title.textContent = product.name;
+      card.appendChild(title);
+      
+      const ratingDiv = document.createElement('div');
+      ratingDiv.className = 'rating';
+      ratingDiv.innerHTML = `<span class="stars">${starsHTML(product.rating)}</span><span>${product.rating} (${product.reviews})</span>`;
+      card.appendChild(ratingDiv);
+      
+      const priceDiv = document.createElement('div');
+      priceDiv.className = 'price';
+      priceDiv.innerHTML = `$${product.price.toFixed(2)} <small>+ envío</small>`;
+      card.appendChild(priceDiv);
+      
+      const btn = document.createElement('button');
+      btn.className = 'btn-whatsapp';
+      btn.innerHTML = '<i class="fab fa-whatsapp"></i> Pedir por WhatsApp';
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open(buildWhatsAppLink(product), '_blank');
+      });
+      card.appendChild(btn);
+      
+      return card;
+    }
+
+    function render() {
+      const filtered = products.filter(p => {
+        const matchCat = currentFilter === 'all' || p.category === currentFilter;
+        const matchSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
+        return matchCat && matchSearch;
+      });
+      
+      if (filtered.length === 0) {
+        app.innerHTML = '<p style="text-align:center;padding:40px;">No hay productos 😕</p>';
+        return;
+      }
+      
+      const groups = {};
+      filtered.forEach(p => {
+        if (!groups[p.category]) groups[p.category] = [];
+        groups[p.category].push(p);
+      });
+      
+      app.innerHTML = '';
+      for (let cat in groups) {
+        const section = document.createElement('section');
+        const title = document.createElement('h2');
+        title.className = 'category-title';
+        title.innerHTML = `<i class="fas fa-${cat==='Zapatos'?'futbol':cat==='Gorras'?'hat-cowboy':'tshirt'}"></i> ${cat}`;
+        section.appendChild(title);
+        
+        const grid = document.createElement('div');
+        grid.className = 'product-grid';
+        groups[cat].forEach(p => grid.appendChild(createCard(p)));
+        section.appendChild(grid);
+        app.appendChild(section);
+      }
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter === 'all' ? 'all' : btn.dataset.filter;
+        render();
+      });
+    });
+
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+      searchTerm = e.target.value.trim();
+      render();
+    });
+    document.getElementById('searchBtn').addEventListener('click', () => render());
+
+    window.scrollToMain = () => document.getElementById('main-content').scrollIntoView({behavior:'smooth'});
+    window.scrollToOfertas = () => {
+      document.querySelector('.filter-btn[data-filter="all"]').click();
+      document.getElementById('main-content').scrollIntoView({behavior:'smooth'});
+    };
+
+    document.getElementById('floatWhatsApp').href = `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent('Hola RB13 Sports, quisiera más información.')}`;
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register("data:application/javascript,self.addEventListener('fetch',()=>{});");
+    }
+
+    render();
+  })();
+</script>
+</body>
+</html>
