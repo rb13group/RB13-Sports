@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>RB13 Sports · Zapatos, Gorras y Camisetas | San Francisco, Zulia</title>
+  <meta name="description" content="Tienda deportiva en San Francisco, Zulia. Zapatos de fútbol sala, gorras originales y camisetas de fútbol.">
+  <meta name="theme-color" content="#131921">
+  
+  <!-- Google Fonts + Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="icon" type="image/png" href="favicon.PNG">
+  
+  <style>
+    /* ==================== RESET Y VARIABLES ==================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f2;
+      color: #0f1111;
+      line-height: 1.5;
+    }
+    
+    /* ==================== BARRA LATERAL DE REDES SOCIALES ==================== */
+    .social-sidebar {
+      position: fixed;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 998;
+    }
+    
+    .social-sidebar a {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s;
+    }
+    
+    .social-sidebar a:hover {
+      transform: scale(1.1);
+    }
+    
+    .social-sidebar .fa-instagram { background: #d62976; color: white; }
+    .social-sidebar .fa-tiktok { background: #000; color: white; }
+    .social-sidebar .fa-facebook-f { background: #1877f2; color: white; }
+    
+    /* ==================== CONTENEDOR PRINCIPAL ==================== */
+    .main-container {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 24px;
+      margin-left: 100px;
+    }
+    
+    /* ==================== NAVBAR ==================== */
+    .navbar {
+      background-color: #131921;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+    }
+    
+    .logo span {
+      background: linear-gradient(145deg, #febd69, #ffa41c);
+      color: #131921;
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 20px;
+      margin-left: 8px;
+      font-weight: 700;
+    }
+    
+    .search-container {
+      flex: 1;
+      min-width: 220px;
+      display: flex;
+      height: 44px;
+    }
+    
+    .search-container input {
+      flex: 1;
+      border: none;
+      padding: 0 18px;
+      font-size: 1rem;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+    }
+    
+    .search-btn {
+      background-color: #febd69;
+      border: none;
+      width: 50px;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .search-btn:hover {
+      background-color: #f3a700;
+    }
+    
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    /* ==================== CARRITO ==================== */
+    .cart-icon {
+      font-size: 1.6rem;
+      position: relative;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -10px;
+      left: 18px;
+      background: #febd69;
+      color: #131921;
+      font-weight: 700;
+      font-size: 0.7rem;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+    }
+    
+    /* ==================== SUBNAV ==================== */
+    .subnav {
+      background-color: #232f3e;
+      color: white;
+      padding: 10px 24px;
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+    }
+    
+    .subnav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    
+    .subnav a:hover {
+      color: #febd69;
+    }
+    
+    /* ==================== BANNER TASA ==================== */
+    .rate-banner {
+      background: linear-gradient(145deg, #1b4f72, #0d3550);
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      font-weight: 600;
+    }
+    
+    /* ==================== HERO BANNER ==================== */
+    .hero {
+      margin: 20px auto 10px;
+    }
+    
+    .hero-content {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.4) 100%), url('https://images.pexels.com/photos/1149774/pexels-photo-1149774.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;
+      border-radius: 28px;
+      padding: 60px 50px;
+      color: white;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 28px;
+    }
+    
+    .hero-btn {
+      background: #FFD814;
+      color: #131921;
+      border: none;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .hero-btn:hover {
+      transform: scale(1.02);
+      background: #f7ca00;
+    }
+    
+    /* ==================== FILTROS ==================== */
+    .filter-section {
+      margin: 20px auto 0;
+    }
+    
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+    
+    .filter-label {
+      font-weight: 600;
+    }
+    
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .filter-chip {
+      background: white;
+      border: 1px solid #d5d9d9;
+      border-radius: 30px;
+      padding: 6px 16px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    
+    .filter-chip.active {
+      background: #131921;
+      color: white;
+      border-color: #131921;
+    }
+    
+    .filter-chip:hover:not(.active) {
+      background: #e2e8f0;
+    }
+    
+    /* ==================== GRID DE PRODUCTOS ==================== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin: 30px 0;
+    }
+    
+    /* ==================== TARJETA DE PRODUCTO ==================== */
+    .product-card {
+      background: white;
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+      background: #fafafa;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    
+    .product-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: #565959;
+      margin-bottom: 6px;
+    }
+    
+    .rating {
+      color: #ffa41c;
+      font-size: 0.8rem;
+      margin: 6px 0;
+    }
+    
+    .price-usd {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0f1111;
+      margin: 8px 0;
+    }
+    
+    .price-ves {
+      font-size: 0.8rem;
+      color: #007185;
+      margin-bottom: 12px;
+    }
+    
+    .btn-cart {
+      background: #FFD814;
+      border: none;
+      padding: 10px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    
+    .btn-cart:hover {
+      background: #f7ca00;
+    }
+    
+    /* ==================== PASOS DE COMPRA ==================== */
+    .steps-container {
+      margin: 50px auto 20px;
+    }
+    
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    
+    .step {
+      text-align: center;
+      flex: 1;
+      min-width: 150px;
+    }
+    
+    .step-icon {
+      font-size: 2.5rem;
+      background: #febd69;
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+    }
+    
+    .step h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    
+    .step p {
+      font-size: 0.85rem;
+      color: #565959;
+    }
+    
+    /* ==================== RESEÑAS ==================== */
+    .reviews-section {
+      margin: 40px auto;
+    }
+    
+    .reviews-grid {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+    
+    .review-card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      min-width: 280px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+    
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    
+    .reviewer img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    /* ==================== FOOTER ==================== */
+    .footer {
+      background: #232f3e;
+      color: #ddd;
+      padding: 30px 24px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    .map-footer-btn {
+      background: #0f172a;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      transition: background 0.2s;
+    }
+    
+    .map-footer-btn:hover {
+      background: #1e293b;
+    }
+    
+    /* ==================== CARRITO FLOTANTE ==================== */
+    .cart-panel {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      max-width: 340px;
+      min-width: 280px;
+      display: none;
+    }
+    
+    .cart-panel.active {
+      display: block;
+    }
+    
+    .cart-items {
+      max-height: 260px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+    
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .cart-total {
+      font-weight: 700;
+      margin: 15px 0;
+      font-size: 1rem;
+    }
+    
+    .btn-send-order {
+      background: #25D366;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    
+    .clear-cart-btn {
+      background: #ddd;
+      border: none;
+      width: 100%;
+      padding: 8px;
+      border-radius: 20px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    
+    /* ==================== WHATSAPP FLOTANTE ==================== */
+    .float-wa {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    
+    .float-wa:hover {
+      transform: scale(1.05);
+      background: #128C7E;
+    }
+    
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 900px) {
+      .main-container {
+        margin-left: 70px;
+        padding: 0 16px;
+      }
+      .social-sidebar {
+        left: 6px;
+      }
+      .social-sidebar a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero-content {
+        padding: 40px 30px;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .main-container {
+        margin-left: 60px;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .search-container {
+        width: 100%;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .hero-content {
+        padding: 30px 20px;
+      }
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 60px;
+      background: white;
+      border-radius: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- BARRA LATERAL DE REDES SOCIALES -->
+<div class="social-sidebar">
+  <a href="https://www.instagram.com/rb13sports" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@rb13sports" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.facebook.com/rb13sports" target="_blank"><i class="fab fa-facebook-f"></i></a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <a href="index.html">RB13 Sports <span>SAN FRANCISCO</span></a>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Buscar productos...">
+      <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="nav-right">
+      <div class="cart-icon" id="cartToggle">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+    </div>
+  </div>
+  <div class="subnav">
+    <a onclick="filterByCategory('all')">Todo</a>
+    <a onclick="filterByCategory('Zapatos')">Zapatos</a>
+    <a onclick="filterByCategory('Gorras')">Gorras</a>
+    <a onclick="filterByCategory('Camisetas')">Camisetas</a>
+  </div>
+</header>
+
+<!-- BANNER TASA -->
+<div class="rate-banner" id="rateBanner">
+  💵 Tasa del día: Bs. 42.50 / USD · Aceptamos Zelle, Pago Móvil y efectivo
+</div>
+
+<!-- HERO BANNER -->
+<section class="hero main-container">
+  <div class="hero-content">
+    <h1>Domina la cancha con RB13 Sports</h1>
+    <p>Zapatos de fútbol sala, gorras originales y camisetas de tus equipos favoritos.</p>
+    <button class="hero-btn" onclick="document.getElementById('productsGrid').scrollIntoView({behavior:'smooth'})">Ver Colección <i class="fas fa-arrow-down"></i></button>
+  </div>
+</section>
+
+<!-- FILTROS -->
+<section class="filter-section main-container">
+  <div class="filter-group">
+    <span class="filter-label">Categoría:</span>
+    <div class="filter-options" id="categoryFilters">
+      <button class="filter-chip active" data-cat="all">Todos</button>
+      <button class="filter-chip" data-cat="Zapatos">Zapatos</button>
+      <button class="filter-chip" data-cat="Gorras">Gorras</button>
+      <button class="filter-chip" data-cat="Camisetas">Camisetas</button>
+    </div>
+  </div>
+</section>
+
+<!-- GRID DE PRODUCTOS -->
+<div class="main-container">
+  <div id="productsGrid" class="products-grid"></div>
+</div>
+
+<!-- GUÍA DE COMPRA -->
+<section class="steps-container main-container">
+  <h2 style="text-align:center; margin-bottom:30px;">¿Cómo comprar en RB13 Sports?</h2>
+  <div class="steps">
+    <div class="step"><div class="step-icon">1️⃣</div><h3>Elige tus productos</h3><p>Haz clic en el producto para ver detalles o añade al carrito.</p></div>
+    <div class="step"><div class="step-icon">2️⃣</div><h3>Confirma por WhatsApp</h3><p>Te enviaremos el resumen de tu pedido.</p></div>
+    <div class="step"><div class="step-icon">3️⃣</div><h3>Recibe tu pedido</h3><p>En San Francisco o Maracaibo.</p></div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section class="reviews-section main-container">
+  <h2 style="margin-bottom:20px;">Clientes reales en San Francisco, Zulia</h2>
+  <div class="reviews-grid">
+    <div class="review-card"><div class="reviewer"><img src="https://randomuser.me/api/portraits/men/1.jpg"><div><strong>Carlos M.</strong><div style="color:#007185;">San Francisco</div></div></div><p>"Entrega puntual en San Francisco. Los zapatos Nike llegaron perfectos."</p><div style="color:#ffa41c;">★★★★★</div></div>
+    <div class="review-card"><div class="reviewer"><img src="https://randomuser.me/api/portraits/women/1.jpg"><div><strong>Andrea R.</strong><div style="color:#007185;">La Coromoto</div></div></div><p>"Pedí una gorra New Era y me la llevaron el mismo día. ¡Excelente!"</p><div style="color:#ffa41c;">★★★★★</div></div>
+    <div class="review-card"><div class="reviewer"><img src="https://randomuser.me/api/portraits/men/2.jpg"><div><strong>Luis D.</strong><div style="color:#007185;">San Francisco</div></div></div><p>"Camiseta Vinotinto original, buena atención por WhatsApp."</p><div style="color:#ffa41c;">★★★★☆</div></div>
+  </div>
+</section>
+
+<!-- MÉTODOS DE PAGO -->
+<div class="main-container" style="text-align:center; margin:20px auto; padding:20px; background:white; border-radius:24px;">
+  <h3><i class="fas fa-credit-card"></i> MÉTODOS DE PAGO</h3>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; font-size:1.2rem; margin-top:15px;">
+    <div><i class="fas fa-exchange-alt" style="color:#6d1ed4;"></i> Zelle</div>
+    <div><i class="fas fa-mobile-alt" style="color:#1e88e5;"></i> Pago Móvil</div>
+    <div><i class="fas fa-money-bill-wave" style="color:#2e7d32;"></i> Efectivo</div>
+    <div><i class="fas fa-university" style="color:#0d47a1;"></i> Banesco Panamá</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a href="https://www.google.com/maps?q=RB13+Sports+San+Francisco+Zulia" target="_blank" class="map-footer-btn">
+    <i class="fas fa-map-marker-alt"></i> 📍 Ver ubicación en Google Maps
+  </a>
+  <p>📍 RB13 Sports - Av. Principal, San Francisco, Zulia, Venezuela | Contacto: +58 412 777 1313</p>
+  <p style="margin-top: 8px; font-size: 0.75rem;">
+    <i class="fas fa-clock"></i> Garantía de cambio por talla o defecto: máximo 48 horas tras la entrega.
+  </p>
+  <p>© 2026 RB13 Sports · Pasión por el fútbol</p>
+</footer>
+
+<!-- CARRITO FLOTANTE -->
+<div class="cart-panel" id="cartPanel">
+  <h4 style="margin-bottom: 15px;">🛒 Tu pedido</h4>
+  <div class="cart-items" id="cartItemsList"></div>
+  <div class="cart-total" id="cartTotal">Total: $0.00</div>
+  <button class="btn-send-order" id="sendOrderBtn"><i class="fab fa-whatsapp"></i> Enviar pedido</button>
+  <button class="clear-cart-btn" id="clearCartBtn">Vaciar carrito</button>
+</div>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="#" class="float-wa" id="floatWhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+(function() {
+  "use strict";
+  
+  // ==================== CONFIGURACIÓN ====================
+  const WHATSAPP_PHONE = "584127771313";
+  const TASA_BCV = 42.50;
+  
+  // ==================== CATÁLOGO DE PRODUCTOS ====================
+  // IMPORTANTE: Las imágenes ahora usan la carpeta "images/" y extensión ".JPG" mayúscula
+  const products = [
+    { id: 1, name: "RB13 - Saifeinu Black Sala", price: 35.99, category: "Zapatos", brand: "RB13-Saifeinu", sizes: ["7", "8", "9", "10"], rating: 4.7, reviews: 128, image: "images/Saifeinu Black Sala 1.JPG" },
+    { id: 2, name: "Adidas Predator Sala", price: 52.50, category: "Zapatos", brand: "Adidas", sizes: ["7.5", "8.5", "9.5", "10.5"], rating: 4.8, reviews: 93, image: "images/Adidas Predator Sala.JPG" },
+    { id: 3, name: "New Era Yankees", price: 22.99, category: "Gorras", brand: "New Era", sizes: ["Única"], rating: 4.6, reviews: 210, image: "images/New Era Yankees.JPG" },
+    { id: 4, name: "Adidas Originals Trefoil", price: 18.50, category: "Gorras", brand: "Adidas", sizes: ["Única"], rating: 4.5, reviews: 87, image: "images/Adidas Originals Trefoil.JPG" },
+    { id: 5, name: "Venezuela Vinotinto 2026", price: 39.99, category: "Camisetas", brand: "Adidas", sizes: ["S", "M", "L", "XL"], rating: 4.9, reviews: 312, image: "images/Venezuela Vinotinto 2026.JPG" },
+    { id: 6, name: "FC Barcelona 2025/26", price: 49.50, category: "Camisetas", brand: "Nike", sizes: ["M", "L", "XL"], rating: 4.8, reviews: 278, image: "images/FC Barcelona 2025 26.JPG" },
+    { id: 7, name: "RB13 - Saifeinu White Edition", price: 35.99, category: "Zapatos", brand: "RB13-Saifeinu", sizes: ["40", "41", "42"], rating: 5.0, reviews: 45, image: "images/Saifeinu White Edition 1.JPG" }
+  ];
+  
+  // ==================== ESTADO ====================
+  let currentCategory = "all";
+  let searchTerm = "";
+  let cart = [];
+  
+  // ==================== LOCALSTORAGE - CARRITO ====================
+  function guardarCarrito() {
+    localStorage.setItem('rb13_cart', JSON.stringify(cart));
+  }
+  
+  function cargarCarrito() {
+    const guardado = localStorage.getItem('rb13_cart');
+    if (guardado) {
+      try {
+        cart = JSON.parse(guardado);
+      } catch(e) {
+        cart = [];
+      }
+    } else {
+      cart = [];
+    }
+    actualizarContadorCarrito();
+    actualizarPanelCarrito();
+  }
+  
+  function actualizarContadorCarrito() {
+    const cartCountSpan = document.getElementById('cartCount');
+    if (cartCountSpan) {
+      const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
+      cartCountSpan.textContent = totalItems;
+    }
+  }
+  
+  function actualizarPanelCarrito() {
+    const cartItemsDiv = document.getElementById('cartItemsList');
+    const cartTotalSpan = document.getElementById('cartTotal');
+    
+    if (!cartItemsDiv) return;
+    
+    if (cart.length === 0) {
+      cartItemsDiv.innerHTML = '<p style="text-align:center; color:#666;">No hay productos en el carrito.</p>';
+      cartTotalSpan.textContent = 'Total: $0.00';
+      return;
+    }
+    
+    let html = '';
+    let total = 0;
+    cart.forEach(item => {
+      const subtotal = item.price * item.quantity;
+      total += subtotal;
+      html += `
+        <div class="cart-item">
+          <span><strong>${item.name}</strong> x${item.quantity}</span>
+          <span>$${subtotal.toFixed(2)} <i class="fas fa-trash" style="cursor:pointer; color:#dc2626; margin-left:8px;" onclick="window.eliminarDelCarrito(${item.id})"></i></span>
+        </div>
+      `;
+    });
+    cartItemsDiv.innerHTML = html;
+    cartTotalSpan.textContent = `Total: $${total.toFixed(2)}`;
+  }
+  
+  window.eliminarDelCarrito = function(id) {
+    cart = cart.filter(i => i.id !== id);
+    guardarCarrito();
+    actualizarContadorCarrito();
+    actualizarPanelCarrito();
+  };
+  
+  function agregarAlCarrito(product) {
+    const existing = cart.find(i => i.id === product.id);
+    if (existing) {
+      existing.quantity++;
+    } else {
+      cart.push({ id: product.id, name: product.name, price: product.price, quantity: 1 });
+    }
+    guardarCarrito();
+    actualizarContadorCarrito();
+    actualizarPanelCarrito();
+    alert(`✅ ${product.name} añadido al carrito`);
+  }
+  
+  function enviarPedidoWhatsApp() {
+    if (cart.length === 0) {
+      alert('🛒 Agrega productos al carrito primero');
+      return;
+    }
+    let itemsText = cart.map((item, idx) => 
+      `${idx+1}. ${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`
+    ).join('%0A');
+    const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+    const msg = `¡Hola RB13 Sports! 👋 Mi pedido es:%0A${itemsText}%0A%0ATotal: $${total.toFixed(2)}%0A📍 Envío a San Francisco, Zulia.`;
+    window.open(`https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(msg)}`, '_blank');
+  }
+  
+  function vaciarCarrito() {
+    cart = [];
+    guardarCarrito();
+    actualizarContadorCarrito();
+    actualizarPanelCarrito();
+    document.getElementById('cartPanel')?.classList.remove('active');
+  }
+  
+  // ==================== FUNCIONES DE FILTRADO ====================
+  function starsHTML(r) {
+    return '★'.repeat(Math.round(r)) + '☆'.repeat(5 - Math.round(r));
+  }
+  
+  function filterProducts() {
+    return products.filter(p => {
+      const catMatch = currentCategory === 'all' || p.category === currentCategory;
+      const searchMatch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
+      return catMatch && searchMatch;
+    });
+  }
+  
+  function encodeImageUrl(url) {
+    if (!url) return '';
+    if (url.startsWith('http')) return url;
+    return url.split('/').map(part => encodeURIComponent(part)).join('/');
+  }
+  
+  function renderProducts() {
+    const container = document.getElementById('productsGrid');
+    const filtered = filterProducts();
+    
+    if (filtered.length === 0) {
+      container.innerHTML = '<div class="no-results"><i class="fas fa-futbol"></i> No hay productos con esos filtros.</div>';
+      return;
+    }
+    
+    container.innerHTML = filtered.map(product => {
+      const vesAmount = product.price * TASA_BCV;
+      const imageUrl = encodeImageUrl(product.image);
+      
+      return `
+        <div class="product-card" onclick="window.location.href='producto-detalle.html?id=${product.id}'">
+          <img class="product-image" src="${imageUrl}" alt="${product.name}" onerror="this.src='https://picsum.photos/400/400?random=1'">
+          <div class="product-title">${product.name}</div>
+          <div class="product-meta"><span>${product.brand}</span><span>Tallas: ${product.sizes.join(', ')}</span></div>
+          <div class="rating">${starsHTML(product.rating)} <span style="color:#565959;">(${product.reviews})</span></div>
+          <div class="price-usd">$${product.price.toFixed(2)}</div>
+          <div class="price-ves">Bs. ${vesAmount.toFixed(2)}</div>
+          <button class="btn-cart" onclick="event.stopPropagation(); agregarAlCarritoDesdeIndex(${product.id})"><i class="fas fa-cart-plus"></i> Añadir</button>
+        </div>
+      `;
+    }).join('');
+  }
+  
+  // Función global para agregar al carrito desde el índice
+  window.agregarAlCarritoDesdeIndex = function(id) {
+    const product = products.find(p => p.id === id);
+    if (product) agregarAlCarrito(product);
+  };
+  
+  // ==================== FILTROS POR CATEGORÍA ====================
+  window.filterByCategory = function(category) {
+    currentCategory = category;
+    document.querySelectorAll('#categoryFilters .filter-chip').forEach(chip => {
+      const chipCat = chip.getAttribute('data-cat');
+      if ((category === 'all' && chipCat === 'all') || chipCat === category) {
+        chip.classList.add('active');
+      } else {
+        chip.classList.remove('active');
+      }
+    });
+    renderProducts();
+  };
+  
+  // ==================== INICIALIZACIÓN ====================
+  function init() {
+    cargarCarrito();
+    renderProducts();
+    
+    // Eventos de filtros
+    document.querySelectorAll('#categoryFilters .filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const category = chip.getAttribute('data-cat');
+        filterByCategory(category);
+      });
+    });
+    
+    // Búsqueda
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchTerm = e.target.value;
+        renderProducts();
+      });
+    }
+    if (searchBtn) {
+      searchBtn.addEventListener('click', () => renderProducts());
+    }
+    
+    // Carrito toggle
+    const cartToggle = document.getElementById('cartToggle');
+    const cartPanel = document.getElementById('cartPanel');
+    if (cartToggle) {
+      cartToggle.addEventListener('click', () => cartPanel.classList.toggle('active'));
+    }
+    
+    // Botones del carrito
+    const sendOrderBtn = document.getElementById('sendOrderBtn');
+    if (sendOrderBtn) {
+      sendOrderBtn.addEventListener('click', enviarPedidoWhatsApp);
+    }
+    
+    const clearCartBtn = document.getElementById('clearCartBtn');
+    if (clearCartBtn) {
+      clearCartBtn.addEventListener('click', vaciarCarrito);
+    }
+    
+    // WhatsApp flotante
+    const floatWa = document.getElementById('floatWhatsApp');
+    if (floatWa) {
+      floatWa.href = `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent('Hola RB13 Sports, quisiera más información.')}`;
+    }
+    
+    // Cerrar carrito al hacer clic fuera
+    document.addEventListener('click', function(event) {
+      if (cartPanel && cartPanel.classList.contains('active')) {
+        if (!cartPanel.contains(event.target) && !cartToggle.contains(event.target)) {
+          cartPanel.classList.remove('active');
+        }
+      }
+    });
+  }
+  
+  init();
+})();
+</script>
+</body>
+</html>
