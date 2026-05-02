@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>RB13 Sports · Camisetas Retro y Oficiales | San Francisco, Zulia</title>
+  <meta name="description" content="Camisetas retro y oficiales de fútbol. Calidad premium, envíos a San Francisco y Maracaibo. Garantía de 48 horas.">
+  <meta name="theme-color" content="#131921">
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #f0f2f2; color: #0f1111; line-height: 1.5; }
+    
+    .social-sidebar { position: fixed; left: 15px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 998; }
+    .social-sidebar a { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: transform 0.2s; }
+    .social-sidebar a:hover { transform: scale(1.1); }
+    .social-sidebar .fa-instagram { background: #d62976; color: white; }
+    .social-sidebar .fa-tiktok { background: #000; color: white; }
+    .social-sidebar .fa-facebook-f { background: #1877f2; color: white; }
+    
+    .main-container { max-width: 1400px; margin: 0 auto; padding: 0 24px; margin-left: 100px; }
+    
+    .navbar { background-color: #131921; color: white; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; gap: 20px; flex-wrap: wrap; }
+    .logo a { color: white; text-decoration: none; font-weight: 800; font-size: 1.8rem; }
+    .logo span { background: linear-gradient(145deg, #febd69, #ffa41c); color: #131921; font-size: 0.7rem; padding: 3px 8px; border-radius: 20px; margin-left: 8px; font-weight: 700; }
+    .cart-icon { font-size: 1.6rem; position: relative; cursor: pointer; z-index: 1000; }
+    .cart-count { position: absolute; top: -10px; left: 18px; background: #febd69; color: #131921; font-weight: 700; font-size: 0.7rem; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1001; }
+    .back-link { background: #232f3e; padding: 8px 20px; border-radius: 30px; color: white; text-decoration: none; font-size: 0.85rem; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; }
+    .back-link:hover { background: #febd69; color: #131921; }
+    
+    .hero-deportivo { margin: 20px auto 30px; border-radius: 28px; overflow: hidden; }
+    .hero-bg { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2000'); background-size: cover; background-position: center; padding: 50px 40px; text-align: center; color: white; }
+    .hero-bg h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+    .hero-badge { display: inline-block; background: #febd69; color: #131921; padding: 8px 20px; border-radius: 40px; font-weight: 700; font-size: 0.85rem; margin-bottom: 15px; }
+    
+    .product-detail-container { background: white; border-radius: 28px; padding: 40px; margin: 30px 0; box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .product-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    
+    .gallery { display: flex; flex-direction: column; gap: 20px; }
+    .main-image { background: #fafafa; border-radius: 24px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; padding: 30px; border: 1px solid #eef2f2; }
+    .main-image img { width: 100%; height: 100%; object-fit: contain; }
+    .thumbnail-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; margin-top: 10px; }
+    .thumbnail { width: 85px; height: 85px; border-radius: 16px; cursor: pointer; border: 2px solid transparent; background: white; padding: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s; }
+    .thumbnail.active { border-color: #febd69; }
+    .thumbnail:hover { transform: scale(1.05); }
+    .thumbnail img { width: 100%; height: 100%; object-fit: contain; }
+    
+    .selector-group { margin: 25px 0; }
+    .selector-group label { font-weight: 700; display: block; margin-bottom: 12px; font-size: 0.9rem; }
+    .size-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .size-btn { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 10px 24px; border-radius: 40px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; }
+    .size-btn.selected { background: #000000; color: white; border-color: #000000; }
+    .size-btn:hover:not(.selected) { background: #e2e8f0; transform: scale(1.02); }
+    .quantity-selector { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
+    .quantity-selector button { background: #f1f5f9; border: none; width: 40px; height: 40px; border-radius: 40px; font-size: 1.2rem; cursor: pointer; }
+    .quantity-selector button:hover { background: #e2e8f0; }
+    .quantity-selector span { font-size: 1.2rem; font-weight: 600; min-width: 40px; text-align: center; }
+    
+    .product-category { display: inline-block; background: #e8f0fe; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: #0f3b2c; margin-bottom: 16px; }
+    .product-title { font-size: 2rem; font-weight: 800; margin-bottom: 16px; color: #0f1111; }
+    .product-price { margin: 20px 0; }
+    .price-usd { font-size: 2.2rem; font-weight: 800; color: #B12704; }
+    .free-shipping { background: #e6f7e6; color: #2e7d32; padding: 8px 16px; border-radius: 40px; font-size: 0.8rem; font-weight: 700; display: inline-block; margin: 10px 0; }
+    .policy-badge { background: #fff6e5; padding: 10px 16px; border-radius: 12px; font-size: 0.75rem; color: #b45309; display: inline-block; border-left: 3px solid #dc2626; margin: 15px 0; }
+    
+    .btn-wa-detalle { background: #25D366; border: none; width: 100%; padding: 16px; border-radius: 60px; color: white; font-weight: 700; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 12px; cursor: pointer; transition: 0.2s; margin: 20px 0 12px; }
+    .btn-wa-detalle:hover { background: #128C7E; transform: scale(1.01); }
+    .btn-cart-detalle { background: #FFD814; border: none; width: 100%; padding: 16px; border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.2s; }
+    .btn-cart-detalle:hover { background: #f7ca00; transform: scale(1.01); }
+    
+    .info-sections { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .description-box { background: #f8fafc; border-radius: 20px; padding: 24px; }
+    .description-box h3 { font-size: 1.2rem; margin-bottom: 15px; }
+    .description-box p { color: #334155; line-height: 1.6; }
+    .specs-box { background: #f8fafc; border-radius: 20px; padding: 24px; }
+    .specs-box h3 { font-size: 1.2rem; margin-bottom: 15px; }
+    .specs-list { list-style: none; }
+    .specs-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #e2e8f0; }
+    .specs-list li i { width: 28px; font-size: 1.2rem; color: #febd69; }
+    .care-section { background: #fef9e6; border-radius: 20px; padding: 20px; margin-top: 30px; border: 1px solid #ffe6b3; }
+    .care-section h4 { margin-bottom: 12px; color: #b45309; font-size: 0.9rem; }
+    .care-list { list-style: none; display: flex; flex-wrap: wrap; gap: 20px; }
+    .care-list li { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #92400e; }
+    .care-list li i { color: #e67e22; width: 20px; }
+    
+    .testimonios-section { background: white; border-radius: 28px; padding: 40px; margin: 30px 0; text-align: center; }
+    .testimonios-header h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+    .testimonios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 32px 0; }
+    .testimonio-card { background: #f8fafc; border-radius: 20px; padding: 24px; text-align: left; border: 1px solid #eef2f2; }
+    .testimonio-estrellas { color: #ffa41c; margin-bottom: 12px; }
+    .testimonio-texto { font-size: 0.95rem; font-style: italic; color: #1e293b; margin-bottom: 16px; }
+    .testimonio-autor { font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .testimonio-location { font-size: 0.75rem; color: #64748b; margin-top: 4px; }
+    .btn-resena { background: #25D366; color: white; border: none; padding: 14px 32px; border-radius: 60px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; }
+    
+    .footer { background: #232f3e; color: #ddd; padding: 30px 24px; text-align: center; margin-top: 40px; }
+    .map-footer-btn { background: #0f172a; color: white; padding: 12px 28px; border-radius: 40px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    
+    .cart-panel { position: fixed; bottom: 100px; right: 30px; background: white; border-radius: 20px; padding: 20px; box-shadow: 0 12px 30px rgba(0,0,0,0.2); z-index: 1000; max-width: 340px; display: none; }
+    .cart-panel.active { display: block; }
+    .cart-items { max-height: 260px; overflow-y: auto; margin-bottom: 15px; }
+    .cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+    .cart-total { font-weight: 700; margin: 15px 0; }
+    .btn-send-order { background: #25D366; color: white; border: none; width: 100%; padding: 12px; border-radius: 30px; font-weight: 700; cursor: pointer; }
+    .clear-cart-btn { background: #ddd; border: none; width: 100%; padding: 8px; border-radius: 20px; margin-top: 10px; cursor: pointer; }
+    .float-wa { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; z-index: 999; text-decoration: none; }
+    
+    @media (max-width: 900px) { .main-container { margin-left: 70px; padding: 0 16px; } .product-detail-grid { grid-template-columns: 1fr; gap: 40px; } .info-sections { grid-template-columns: 1fr; gap: 20px; } .social-sidebar { left: 6px; } .social-sidebar a { width: 40px; height: 40px; font-size: 20px; } .thumbnail { width: 65px; height: 65px; } }
+    @media (max-width: 640px) { .main-container { margin-left: 60px; } .product-detail-container { padding: 20px; } .product-title { font-size: 1.5rem; } .price-usd { font-size: 1.8rem; } .thumbnail { width: 55px; height: 55px; } .navbar { flex-direction: column; align-items: stretch; } .back-link { justify-content: center; } }
+    .loading { text-align: center; padding: 60px; background: white; border-radius: 24px; }
+  </style>
+</head>
+<body>
+
+<div class="social-sidebar">
+  <a href="https://www.instagram.com/rb13sports" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@rb13sports" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.facebook.com/rb13sports" target="_blank"><i class="fab fa-facebook-f"></i></a>
+</div>
+
+<header>
+  <div class="navbar">
+    <div class="logo"><a href="index.html">RB13 Sports <span>SAN FRANCISCO</span></a></div>
+    <div class="cart-icon" id="cartToggle"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></div>
+    <button class="back-link" id="backToStoreBtn"><i class="fas fa-arrow-left"></i> Volver a la tienda</button>
+  </div>
+</header>
+
+<div class="hero-deportivo main-container">
+  <div class="hero-bg">
+    <span class="hero-badge">⚡ RB13 Sports</span>
+    <h1 id="heroTitle">Camiseta Oficial</h1>
+  </div>
+</div>
+
+<div class="main-container">
+  <div id="productDetailContainer"><div class="loading">Cargando información del producto...</div></div>
+  
+  <div class="testimonios-section">
+    <div class="testimonios-header"><h2>⭐ Orgullo Zuliano</h2><p>Lo que dicen nuestros clientes en San Francisco y todo el Zulia</p></div>
+    <div class="testimonios-grid">
+      <div class="testimonio-card"><div class="testimonio-estrellas">★★★★★</div><div class="testimonio-texto">"La calidad de las camisetas retro es increíble. Los detalles de los escudos son perfectos."</div><div class="testimonio-autor"><i class="fas fa-user-circle"></i> Luis G.</div><div class="testimonio-location">📍 San Francisco, San Felipe</div></div>
+      <div class="testimonio-card"><div class="testimonio-estrellas">★★★★★</div><div class="testimonio-texto">"Pedí la del Real Madrid retro y llegó en 2 días. Excelente atención por WhatsApp."</div><div class="testimonio-autor"><i class="fas fa-user-circle"></i> Carlos M.</div><div class="testimonio-location">📍 La Coromoto, Maracaibo</div></div>
+      <div class="testimonio-card"><div class="testimonio-estrellas">★★★★★</div><div class="testimonio-texto">"La camiseta de Argentina 2006 de Messi es una joya. Muy contento con la compra."</div><div class="testimonio-autor"><i class="fas fa-user-circle"></i> Daniel R.</div><div class="testimonio-location">📍 Cabimas, Zulia</div></div>
+    </div>
+    <button class="btn-resena" id="btnDejarResena"><i class="fab fa-whatsapp"></i> Dejar mi comentario</button>
+  </div>
+</div>
+
+<div class="cart-panel" id="cartPanel">
+  <h4>🛒 Tu pedido</h4>
+  <div class="cart-items" id="cartItemsList"></div>
+  <div class="cart-total" id="cartTotal">Total: $0.00</div>
+  <button class="btn-send-order" id="sendOrderBtn"><i class="fab fa-whatsapp"></i> Enviar pedido</button>
+  <button class="clear-cart-btn" id="clearCartBtn">Vaciar carrito</button>
+</div>
+
+<a href="#" class="float-wa" id="floatWhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<footer class="footer">
+  <a href="https://www.google.com/maps?q=RB13+Sports+San+Francisco+Zulia" target="_blank" class="map-footer-btn"><i class="fas fa-map-marker-alt"></i> 📍 Ver ubicación en Google Maps</a>
+  <p>📍 RB13 Sports - Av. Principal, San Francisco, Zulia, Venezuela | Contacto: +58 422 015 1595</p>
+  <p><i class="fas fa-clock"></i> Garantía de cambio por talla o defecto: máximo 48 horas tras la entrega.</p>
+  <p>© 2026 RB13 Sports · Pasión por el fútbol · Hecho en el Zulia 🇻🇪</p>
+</footer>
+
+<script>
+(function() {
+  "use strict";
+  
+  const WHATSAPP_PHONE = "584220151595";
+  
+  // ==================== BASE DE DATOS DE PRODUCTOS ====================
+  const productos = [
+    { id: 1, nombre: "Man. United 07/08 #7 Ronaldo (Retro)", subtitulo: "La leyenda empezó aquí", precio: 34.90, tipo: "camiseta", categoriaTexto: "Retro Premier League", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/ManUtd1.JPEG", "images/ManUtd2.JPEG", "images/ManUtd3.JPEG"], descripcion: "Camiseta retro del Manchester United temporada 2007/08, la temporada del doblete. Personalizada con el dorsal de Cristiano Ronaldo #7. Calidad Premium con tecnología de ventilación avanzada, escudos bordados.", especificaciones: { material: "100% Poliéster Dry-Fit con ventilación avanzada", ajuste: "Corte atlético - Slim Fit", peso: "Ultra ligera (aprox 160g)" }, freeShipping: true },
+    { id: 2, nombre: "R. Madrid 11/12 #7 Ronaldo (Retro Dorada)", subtitulo: "La temporada de los récords", precio: 34.90, tipo: "camiseta", categoriaTexto: "Retro LaLiga", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/producto2-1.JPG", "images/producto2-2.JPG", "images/producto2-3.JPG"], descripcion: "Camiseta retro del Real Madrid temporada 2011/12, la temporada de los 100 puntos y 121 goles. Personalizada con el dorsal de Cristiano Ronaldo #7. Edición especial detalles dorados.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true },
+    { id: 3, nombre: "Barcelona 08/09 #10 MESSI (Retro Sextete)", subtitulo: "El año del sextete histórico", precio: 34.90, tipo: "camiseta", categoriaTexto: "Retro LaLiga", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/Barca081.JPEG", "images/Barca082.JPEG", "images/Barca083.JPEG"], descripcion: "Camiseta retro del FC Barcelona temporada 2008/09, la temporada del histórico sextete. Personalizada con el dorsal de Lionel Messi #10. Calidad Premium 1.1 con escudos bordados.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ultra ligera (aprox 160g)" }, freeShipping: true },
+    { id: 4, nombre: "Milan AC 06/07 #22 KAKA (Retro)", subtitulo: "El mejor del mundo 2007", precio: 34.90, tipo: "camiseta", categoriaTexto: "Retro Serie A", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/ACM1.JPEG", "images/ACM2.JPEG", "images/ACM3.JPEG"], descripcion: "Camiseta retro del AC Milan temporada 2006/07, la temporada de la Champions. Personalizada con el dorsal de Kaká #22, Balón de Oro 2007.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true },
+    { id: 5, nombre: "Colombia 2026 #7 Luis Díaz", subtitulo: "La nueva generación", precio: 34.90, tipo: "camiseta", categoriaTexto: "Selecciones", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/Col1.JPEG", "images/Col2.JPEG", "images/Col3.JPEG"], descripcion: "Camiseta oficial de la selección Colombia 2026. Personalizada con el dorsal de Luis Díaz #7. Tecnología avanzada para máximo rendimiento en la cancha.", especificaciones: { material: "100% Poliéster Dry-Fit avanzado", ajuste: "Corte atlético", peso: "Ultra ligera (aprox 155g)" }, freeShipping: true },
+    { id: 6, nombre: "R. Madrid 25/26 #10 Mbappe", subtitulo: "El nuevo rey del Bernabéu", precio: 34.90, tipo: "camiseta", categoriaTexto: "LaLiga", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/Madrid1.JPEG", "images/Madrid2.JPEG", "images/Madrid3.JPEG"], descripcion: "Camiseta oficial del Real Madrid temporada 2025/26 con el dorsal de Kylian Mbappé #10. Calidad Premium, escudos bordados y tecnología de ventilación.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true },
+    { id: 7, nombre: "R. Madrid 25/26 #8 Valverde", subtitulo: "Corazón y garra", precio: 34.90, tipo: "camiseta", categoriaTexto: "LaLiga", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/producto7-1.JPG", "images/producto7-2.JPG", "images/producto7-3.JPG"], descripcion: "Camiseta oficial del Real Madrid temporada 2025/26 con el dorsal de Federico Valverde #8. Diseño moderno con tecnología de secado rápido.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true },
+    { id: 8, nombre: "R. Madrid 25/26 #11 Rodrygo", subtitulo: "Magia brasileña", precio: 34.90, tipo: "camiseta", categoriaTexto: "LaLiga", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/producto8-1.JPG", "images/producto8-2.JPG", "images/producto8-3.JPG"], descripcion: "Camiseta oficial del Real Madrid temporada 2025/26 con el dorsal de Rodrygo #11. Diseño elegante y materiales de alta calidad.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true },
+    { id: 9, nombre: "Argentina 2006 #19 MESSI (Retro Debut)", subtitulo: "El debut del mejor del mundo", precio: 34.90, tipo: "camiseta", categoriaTexto: "Retro Selecciones", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/Arg1.JPEG", "images/Arg2.JPEG", "images/Arg3.JPEG"], descripcion: "Camiseta retro de Argentina del Mundial 2006, el debut de Lionel Messi en Copas del Mundo. Personalizada con el dorsal #19. Pieza de colección.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte clásico", peso: "Ligera (aprox 170g)" }, freeShipping: true },
+    { id: 10, nombre: "Inter Miami 25/26 #10 MESSI", subtitulo: "La magia en la MLS", precio: 34.90, tipo: "camiseta", categoriaTexto: "MLS", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/Imes1.JPEG", "images/Imes2.JPEG", "images/Imes3.JPEG"], descripcion: "Camiseta oficial del Inter Miami temporada 2025/26 con el dorsal de Lionel Messi #10. Diseño exclusivo con los colores rosado y negro.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ultra ligera (aprox 160g)" }, freeShipping: true },
+    { id: 11, nombre: "R. Madrid 06/07 #3 R. Carlos (Retro)", subtitulo: "El cañón de la selección", precio: 34.90, tipo: "camiseta", categoriaTexto: "Retro LaLiga", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/Mcar1.JPEG", "images/Mcar2.JPEG", "images/Mcar3.JPEG"], descripcion: "Camiseta retro del Real Madrid temporada 2006/07 con el dorsal de Roberto Carlos #3, el mejor lateral izquierdo de la historia. Diseño clásico.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte clásico", peso: "Ligera (aprox 170g)" }, freeShipping: true },
+    { id: 12, nombre: "R. Madrid 06/07 #23 Beckham (Retro)", subtitulo: "El ídolo inglés", precio: 34.90, tipo: "camiseta", categoriaTexto: "Retro LaLiga", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/producto12-1.JPG", "images/producto12-2.JPG", "images/producto12-3.JPG"], descripcion: "Camiseta retro del Real Madrid temporada 2006/07 con el dorsal de David Beckham #23. La última temporada del inglés en el club blanco.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte clásico", peso: "Ligera (aprox 170g)" }, freeShipping: true },
+    { id: 13, nombre: "Barcelona 13/14 #11 NEYMAR (Retro)", subtitulo: "La era del brasileño", precio: 34.90, tipo: "camiseta", categoriaTexto: "Retro LaLiga", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/Bney1.JPEG", "images/Bney2.JPEG", "images/Bney3.JPEG"], descripcion: "Camiseta retro del FC Barcelona temporada 2013/14 con el dorsal de Neymar Jr #11. La temporada de su debut con el club catalán.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true },
+    { id: 14, nombre: "Liverpool 25/26 #10 Mac Allister", subtitulo: "El cerebro argentino", precio: 34.90, tipo: "camiseta", categoriaTexto: "Premier League", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/producto14-1.JPG", "images/producto14-2.JPG", "images/producto14-3.JPG"], descripcion: "Camiseta oficial del Liverpool temporada 2025/26 con el dorsal de Alexis Mac Allister #10. Diseño moderno con tecnología de ventilación avanzada.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true },
+    { id: 15, nombre: "PSG 25/26 #10 O. Dembele", subtitulo: "Velocidad francesa", precio: 34.90, tipo: "camiseta", categoriaTexto: "Ligue 1", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/producto15-1.JPG", "images/producto15-2.JPG", "images/producto15-3.JPG"], descripcion: "Camiseta oficial del PSG temporada 2025/26 con el dorsal de Ousmane Dembélé #10. Diseño elegante en azul, rojo y blanco.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ultra ligera (aprox 160g)" }, freeShipping: true },
+    { id: 16, nombre: "Newcastle Utd. 25/26 #10 Tonali", subtitulo: "Velocidad", precio: 34.90, tipo: "camiseta", categoriaTexto: "Premier", tallas: ["S", "M", "L", "XL"], imagenesGaleria: ["images/Nton1.JPEG", "images/Nton2.JPEG", "images/Nton3.JPEG"], descripcion: "Camiseta oficial del Newcastle Utd. temporada 2025/26 con el dorsal de Tonali #8. Diseño elegante en negro y blanco.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ultra ligera (aprox 160g)" }, freeShipping: true }
+  ];
+  
+  // ==================== LOCALSTORAGE CARRITO ====================
+  let cart = [];
+  function guardarCarrito() { localStorage.setItem('rb13_cart', JSON.stringify(cart)); }
+  function cargarCarrito() { const g = localStorage.getItem('rb13_cart'); cart = g ? JSON.parse(g) : []; actualizarContador(); actualizarPanel(); }
+  function actualizarContador() { const c = document.getElementById('cartCount'); if(c) c.textContent = cart.reduce((s,i)=>s+i.quantity,0); }
+  function actualizarPanel() {
+    const items = document.getElementById('cartItemsList');
+    const totalSpan = document.getElementById('cartTotal');
+    if(!items) return;
+    if(cart.length===0){ items.innerHTML='<p style="text-align:center;">No hay productos.</p>'; totalSpan.textContent='Total: $0.00'; return; }
+    let html='', total=0;
+    cart.forEach(i => { const sub=i.price*i.quantity; total+=sub; html+=`<div class="cart-item"><span><strong>${i.name}</strong> (Talla: ${i.talla}) x${i.quantity}</span><span>$${sub.toFixed(2)} <i class="fas fa-trash" style="cursor:pointer;color:#dc2626;" onclick="window.eliminarDelCarrito(${i.id})"></i></span></div>`; });
+    items.innerHTML=html;
+    totalSpan.textContent=`Total: $${total.toFixed(2)}`;
+  }
+  window.eliminarDelCarrito = function(id) { cart = cart.filter(i=>i.id!==id); guardarCarrito(); actualizarContador(); actualizarPanel(); };
+  function agregarAlCarrito(p, talla, cant) { 
+    const ex=cart.find(i=>i.id===p.id && i.talla===talla); 
+    if(ex) ex.quantity+=cant; 
+    else cart.push({id:p.id, name:p.nombre, price:p.precio, quantity:cant, talla:talla}); 
+    guardarCarrito(); actualizarContador(); actualizarPanel(); 
+    alert(`✅ ${p.nombre} (Talla: ${talla}) añadido`); 
+  }
+  function enviarPedido() { 
+    if(cart.length===0){alert('Carrito vacío');return;} 
+    let txt=cart.map((i,idx)=>`${idx+1}. ${i.name} (Talla: ${i.talla}) x${i.quantity} - $${(i.price*i.quantity).toFixed(2)}`).join('%0A'); 
+    const t=cart.reduce((s,i)=>s+i.price*i.quantity,0); 
+    window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`¡Hola RB13 Sports! Mi pedido:%0A${txt}%0ATotal: $${t.toFixed(2)}`)}`,'_blank'); 
+  }
+  function vaciarCarrito() { cart=[]; guardarCarrito(); actualizarContador(); actualizarPanel(); document.getElementById('cartPanel')?.classList.remove('active'); }
+  
+  function getProductIdFromURL() { const p = new URLSearchParams(window.location.search); const id = p.get('id'); if(id && !isNaN(parseInt(id)) && productos.some(p=>p.id===parseInt(id))) return parseInt(id); return 1; }
+  function encodeUrl(u) { if(!u) return ''; if(u.startsWith('http')) return u; return u.split('/').map(p=>encodeURIComponent(p)).join('/'); }
+  
+  let currentProduct = null;
+  let selectedSize = null;
+  let quantity = 1;
+  
+  function cambiarImagenPrincipal(nuevaImagen) {
+    const mainImgContainer = document.getElementById('mainImage');
+    if (!mainImgContainer) return;
+    const img = mainImgContainer.querySelector('img');
+    if (img) { img.style.opacity = '0.5'; setTimeout(() => { img.src = nuevaImagen; img.onload = () => { img.style.opacity = '1'; }; }, 150); }
+  }
+  
+  function render() {
+    const container = document.getElementById('productDetailContainer');
+    const id = getProductIdFromURL();
+    currentProduct = productos.find(p => p.id === id);
+    if (!currentProduct) { container.innerHTML = '<div class="loading">Producto no encontrado.</div>'; return; }
+    
+    document.getElementById('heroTitle').innerText = currentProduct.nombre;
+    selectedSize = currentProduct.tallas[0];
+    
+    const sizeButtonsHtml = currentProduct.tallas.map(t => `<button class="size-btn ${selectedSize === t ? 'selected' : ''}" data-size="${t}">${t}</button>`).join('');
+    const freeShippingHtml = currentProduct.freeShipping ? '<div class="free-shipping"><i class="fas fa-truck"></i> 🚚 DELIVERY GRATIS en San Francisco y Maracaibo</div>' : '';
+    
+    const specsHtml = `<ul class="specs-list"><li><i class="fas fa-tshirt"></i> <strong>Material:</strong> ${currentProduct.especificaciones.material}</li><li><i class="fas fa-cut"></i> <strong>Corte/Ajuste:</strong> ${currentProduct.especificaciones.ajuste}</li><li><i class="fas fa-weight-hanging"></i> <strong>Peso:</strong> ${currentProduct.especificaciones.peso}</li></ul>`;
+    
+    container.innerHTML = `
+      <div class="product-detail-container">
+        <div class="product-detail-grid">
+          <div class="gallery">
+            <div class="main-image" id="mainImage"><img src="${encodeUrl(currentProduct.imagenesGaleria[0])}" onerror="this.src='https://picsum.photos/800/800'"></div>
+            <div class="thumbnail-list" id="thumbnailList">${currentProduct.imagenesGaleria.map((img, idx) => `<div class="thumbnail ${idx === 0 ? 'active' : ''}" data-img="${encodeUrl(img)}"><img src="${encodeUrl(img)}" onerror="this.src='https://picsum.photos/200/200'"></div>`).join('')}</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">⚡ ${currentProduct.categoriaTexto}</div>
+            <h1 class="product-title">${currentProduct.nombre}</h1>
+            <div class="product-price"><div class="price-usd">$${currentProduct.precio.toFixed(2)} USD</div></div>
+            ${freeShippingHtml}
+            <div class="policy-badge"><i class="fas fa-clock"></i> Garantía de cambio por talla o defecto: máximo 48 horas tras la entrega</div>
+            <div class="selector-group"><label><i class="fas fa-ruler-combined"></i> Selecciona tu talla:</label><div class="size-buttons" id="sizeButtonsContainer">${sizeButtonsHtml}</div></div>
+            <div class="selector-group"><label><i class="fas fa-box"></i> Cantidad:</label><div class="quantity-selector"><button id="decQty">−</button><span id="qtyVal">1</span><button id="incQty">+</button></div></div>
+            <button class="btn-wa-detalle" id="waBtn"><i class="fab fa-whatsapp"></i> Pedir por WhatsApp</button>
+            <button class="btn-cart-detalle" id="cartBtn"><i class="fas fa-cart-plus"></i> Añadir al Carrito</button>
+          </div>
+        </div>
+        <div class="info-sections">
+          <div class="description-box"><h3><i class="fas fa-pen-fancy"></i> Descripción</h3><p>${currentProduct.descripcion}</p></div>
+          <div class="specs-box"><h3><i class="fas fa-clipboard-list"></i> Especificaciones Técnicas</h3>${specsHtml}</div>
+        </div>
+        <div class="care-section"><h4><i class="fas fa-hand-sparkles"></i> ⚠️ Instrucciones de Cuidado</h4><ul class="care-list"><li><i class="fas fa-water"></i> Lavar a mano o en ciclo delicado con agua fría</li><li><i class="fas fa-ban"></i> No usar blanqueador ni suavizantes</li><li><i class="fas fa-sun"></i> Secar a la sombra (No usar secadora)</li><li><i class="fas fa-iron"></i> No planchar sobre los estampados/números</li></ul></div>
+      </div>
+    `;
+    
+    document.querySelectorAll('.thumbnail').forEach(t => t.addEventListener('click', function() { document.querySelectorAll('.thumbnail').forEach(x=>x.classList.remove('active')); this.classList.add('active'); cambiarImagenPrincipal(this.dataset.img); }));
+    document.querySelectorAll('.size-btn').forEach(b => b.addEventListener('click', function() { document.querySelectorAll('.size-btn').forEach(x=>x.classList.remove('selected')); this.classList.add('selected'); selectedSize = this.dataset.size; }));
+    document.getElementById('decQty')?.addEventListener('click', () => { if(quantity>1){quantity--; document.getElementById('qtyVal').innerText=quantity;} });
+    document.getElementById('incQty')?.addEventListener('click', () => { quantity++; document.getElementById('qtyVal').innerText=quantity; });
+    
+    document.getElementById('waBtn')?.addEventListener('click', () => {
+      if (!selectedSize) { alert('⚠️ Selecciona una talla'); return; }
+      const mensaje = `¡Hola RB13 Sports! Me interesa la ${currentProduct.nombre} en Talla ${selectedSize}. ¿Tienen disponibilidad?`;
+      window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(mensaje)}`, '_blank');
+    });
+    
+    document.getElementById('cartBtn')?.addEventListener('click', () => { if (!selectedSize) { alert('⚠️ Selecciona una talla'); return; } agregarAlCarrito(currentProduct, selectedSize, quantity); });
+  }
+  
+  function init() {
+    cargarCarrito();
+    render();
+    document.getElementById('cartToggle')?.addEventListener('click', () => document.getElementById('cartPanel')?.classList.toggle('active'));
+    document.getElementById('sendOrderBtn')?.addEventListener('click', enviarPedido);
+    document.getElementById('clearCartBtn')?.addEventListener('click', vaciarCarrito);
+    document.getElementById('backToStoreBtn')?.addEventListener('click', () => window.location.href = 'index.html');
+    document.getElementById('btnDejarResena')?.addEventListener('click', () => window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent('Hola, quiero dejar una reseña de mi compra en RB13 Sports')}`, '_blank'));
+    document.getElementById('floatWhatsApp').href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent('Hola RB13 Sports, quisiera más información.')}`;
+    document.addEventListener('click', function(e) { const p = document.getElementById('cartPanel'); const t = document.getElementById('cartToggle'); if(p?.classList.contains('active') && !p.contains(e.target) && !t.contains(e.target)) p.classList.remove('active'); });
+  }
+  init();
+})();
+</script>
+</body>
+</html>
