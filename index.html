@@ -498,11 +498,12 @@
     { id: 14, name: "Liverpool 25/26 10 Mac Allister", price: 34.90, category: "Camisetas", brand: "Nike", sizes: ["S", "M", "L", "XL"], rating: 4.7, reviews: 89, image: "images/Lmac1.jpeg", freeShipping: true },
     { id: 15, name: "PSG 25/26 10 O. Dembele", price: 34.90, category: "Camisetas", brand: "Nike", sizes: ["S", "M", "L", "XL"], rating: 4.7, reviews: 76, image: "images/PSGd1.jpeg", freeShipping: true },
     { id: 16, name: "Newcastle Utd. 25/26 8 Tonali", price: 34.90, category: "Camisetas", brand: "Adidas", sizes: ["S", "M", "L", "XL"], rating: 4.7, reviews: 76, image: "images/Nton1.jpeg", freeShipping: true },
+    { id: 17, name: "Bayern Múnich 25/26 #9 Kane", price: 34.90, category: "Camisetas", brand: "Adidas", sizes: ["S", "M", "L", "XL"], rating: 4.8, reviews: 45, image: "images/Bayer1.jpeg", freeShipping: true },
     // Productos adicionales (zapatos y gorras)
-    { id: 17, name: "RB13 - Saifeinu Sala", price: 35.99, category: "Zapatos", brand: "RB13", sizes: ["40", "41", "42", "43"], rating: 5.0, reviews: 45, image: "images/Saifeinu Black Sala 1.JPG", freeShipping: true },
-    { id: 18, name: "Nike Mercurial Sala", price: 45.99, category: "Zapatos", brand: "Nike", sizes: ["7", "8", "9", "10"], rating: 4.7, reviews: 128, image: "images/Nike Mercurial Sala.JPG", freeShipping: true },
-    { id: 19, name: "Adidas Predator Sala", price: 52.50, category: "Zapatos", brand: "Adidas", sizes: ["7.5", "8.5", "9.5", "10.5"], rating: 4.8, reviews: 93, image: "images/Adidas Predator Sala.JPG", freeShipping: false },
-    { id: 20, name: "New Era Yankees", price: 22.99, category: "Gorras", brand: "New Era", sizes: ["Única"], rating: 4.6, reviews: 210, image: "images/New Era Yankees.JPG", freeShipping: true }
+    { id: 18, name: "RB13 - Saifeinu Sala", price: 35.99, category: "Zapatos", brand: "RB13", sizes: ["40", "41", "42", "43"], rating: 5.0, reviews: 45, image: "images/Saifeinu Black Sala 1.JPG", freeShipping: true },
+    { id: 19, name: "Nike Mercurial Sala", price: 45.99, category: "Zapatos", brand: "Nike", sizes: ["7", "8", "9", "10"], rating: 4.7, reviews: 128, image: "images/Nike Mercurial Sala.JPG", freeShipping: true },
+    { id: 20, name: "Adidas Predator Sala", price: 52.50, category: "Zapatos", brand: "Adidas", sizes: ["7.5", "8.5", "9.5", "10.5"], rating: 4.8, reviews: 93, image: "images/Adidas Predator Sala.JPG", freeShipping: false },
+    { id: 21, name: "New Era Yankees", price: 22.99, category: "Gorras", brand: "New Era", sizes: ["Única"], rating: 4.6, reviews: 210, image: "images/New Era Yankees.JPG", freeShipping: true }
   ];
   
   let currentCategory = "all";
@@ -524,7 +525,30 @@
   }
   window.eliminarDelCarrito = function(id) { cart = cart.filter(i=>i.id!==id); guardarCarrito(); actualizarContador(); actualizarPanel(); };
   function agregarAlCarrito(p) { const ex=cart.find(i=>i.id===p.id); if(ex) ex.quantity++; else cart.push({id:p.id, name:p.name, price:p.price, quantity:1}); guardarCarrito(); actualizarContador(); actualizarPanel(); alert(`✅ ${p.name} añadido al carrito`); }
-  function enviarPedido() { if(cart.length===0){alert('Carrito vacío');return;} let txt=cart.map((i,idx)=>`${idx+1}. ${i.name} x${i.quantity} - $${(i.price*i.quantity).toFixed(2)}`).join('%0A'); const t=cart.reduce((s,i)=>s+i.price*i.quantity,0); window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`¡Hola RB13 Sports! Mi pedido:%0A${txt}%0ATotal: $${t.toFixed(2)}`)}`,'_blank'); }
+  
+  // ==================== FUNCIÓN ENVIAR PEDIDO CORREGIDA ====================
+  function enviarPedido() {
+    if (cart.length === 0) {
+      alert('Carrito vacío');
+      return;
+    }
+    
+    // Construir mensaje con Template Literals y saltos de línea reales
+    let itemsText = '';
+    cart.forEach((item, idx) => {
+      const subtotal = (item.price * item.quantity).toFixed(2);
+      itemsText += `${idx + 1}. ${item.name} x${item.quantity} - $${subtotal}\n`;
+    });
+    
+    const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0).toFixed(2);
+    
+    const mensaje = `¡Hola RB13 Sports! Mi pedido:\n\n${itemsText}\nTotal: $${total}`;
+    
+    // Aplicar encodeURIComponent solo al final
+    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+  }
+  
   function vaciarCarrito() { cart=[]; guardarCarrito(); actualizarContador(); actualizarPanel(); document.getElementById('cartPanel')?.classList.remove('active'); }
   
   function starsHTML(r) { return '★'.repeat(Math.round(r)) + '☆'.repeat(5-Math.round(r)); }
