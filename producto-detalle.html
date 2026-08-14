@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>RB13 Market · Zapatos y Camisetas Premium | San Francisco, Zulia</title>
+  <meta name="description" content="Zapatos RB13 Petrolero, Lagarto y Elegance. Camisetas retro y oficiales. Envíos a San Francisco y Maracaibo.">
+  <meta name="theme-color" content="#131921">
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #f0f2f2; color: #0f1111; line-height: 1.5; }
+    
+    .social-sidebar {
+      position: fixed;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 998;
+    }
+    
+    .social-sidebar a {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+    
+    .social-sidebar a:hover { transform: scale(1.1); }
+    .social-sidebar .fa-instagram { background: #d62976; color: white; }
+    .social-sidebar .fa-tiktok { background: #000; color: white; }
+    .social-sidebar .fa-facebook-f { background: #1877f2; color: white; }
+    
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      margin-left: 100px;
+    }
+    
+    .navbar {
+      background-color: #131921;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+    }
+    
+    .logo span {
+      background: linear-gradient(145deg, #febd69, #ffa41c);
+      color: #131921;
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 20px;
+      margin-left: 8px;
+      font-weight: 700;
+    }
+    
+    .cart-icon {
+      font-size: 1.6rem;
+      position: relative;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -10px;
+      left: 18px;
+      background: #febd69;
+      color: #131921;
+      font-weight: 700;
+      font-size: 0.7rem;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+    }
+    
+    .back-link {
+      background: #232f3e;
+      padding: 8px 20px;
+      border-radius: 30px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .back-link:hover {
+      background: #febd69;
+      color: #131921;
+    }
+    
+    .hero-deportivo {
+      margin: 20px auto 30px;
+      border-radius: 28px;
+      overflow: hidden;
+    }
+    
+    .hero-bg {
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+      padding: 50px 40px;
+      text-align: center;
+      color: white;
+    }
+    
+    .hero-bg h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+    .hero-badge { display: inline-block; background: #febd69; color: #131921; padding: 8px 20px; border-radius: 40px; font-weight: 700; font-size: 0.85rem; margin-bottom: 15px; }
+    
+    .promo-banner-detail {
+      background: linear-gradient(135deg, #ff6b00, #ff8c00, #ffa41c);
+      color: #131921;
+      padding: 12px 18px;
+      margin: 10px auto 0;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 25px rgba(255, 107, 0, 0.3);
+      animation: pulseGlow 2s ease-in-out infinite;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 8px 25px rgba(255, 107, 0, 0.3); }
+      50% { box-shadow: 0 8px 40px rgba(255, 107, 0, 0.6); }
+    }
+    
+    .promo-banner-detail i {
+      margin-right: 8px;
+    }
+    
+    .promo-banner-detail .highlight {
+      background: #131921;
+      color: #ffa41c;
+      padding: 2px 12px;
+      border-radius: 30px;
+      font-weight: 800;
+      display: inline-block;
+      margin: 0 4px;
+    }
+    
+    .promo-banner-detail .price-tag {
+      background: white;
+      color: #dc2626;
+      padding: 2px 12px;
+      border-radius: 30px;
+      font-weight: 800;
+      display: inline-block;
+      margin: 0 4px;
+      font-size: 1.1rem;
+    }
+    
+    .promo-banner-detail .old-price {
+      text-decoration: line-through;
+      color: rgba(0,0,0,0.5);
+      font-weight: 400;
+      font-size: 0.85rem;
+      margin-right: 4px;
+    }
+    
+    .tasa-notice-detail {
+      background: linear-gradient(135deg, #fff8e1, #ffecb3);
+      border-left: 4px solid #febd69;
+      padding: 10px 16px;
+      border-radius: 10px;
+      margin: 12px 0 16px 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #5d4037;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tasa-notice-detail i {
+      color: #f57c00;
+      font-size: 1rem;
+    }
+    
+    .product-detail-container {
+      background: white;
+      border-radius: 28px;
+      padding: 40px;
+      margin: 30px 0;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    
+    .gallery { display: flex; flex-direction: column; gap: 20px; }
+    .main-image { background: #fafafa; border-radius: 24px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; padding: 30px; border: 1px solid #eef2f2; }
+    .main-image img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.3s ease; }
+    .thumbnail-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; margin-top: 10px; }
+    .thumbnail { width: 85px; height: 85px; border-radius: 16px; cursor: pointer; border: 2px solid transparent; background: white; padding: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s; }
+    .thumbnail.active { border-color: #febd69; box-shadow: 0 0 0 2px rgba(254,189,105,0.3); }
+    .thumbnail:hover { transform: scale(1.05); }
+    .thumbnail img { width: 100%; height: 100%; object-fit: contain; }
+    
+    .selector-group { margin: 25px 0; }
+    .selector-group label { font-weight: 700; display: block; margin-bottom: 12px; font-size: 0.9rem; }
+    
+    .color-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+    .color-btn { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 8px 18px; border-radius: 40px; font-weight: 500; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+    .color-btn:hover { background: #e2e8f0; transform: scale(1.02); }
+    .color-btn.selected { background: #000000; color: white; border-color: #000000; }
+    .color-circle { width: 22px; height: 22px; border-radius: 50%; display: inline-block; border: 1px solid #ccc; }
+    .color-circle.naranja-neon { background: #ff6600; }
+    .color-circle.negro-blanco { background: linear-gradient(135deg, #333, #fff); }
+    .color-circle.azul-navy { background: #003366; }
+    .color-circle.azul { background: #0066cc; }
+    .color-circle.negro { background: #1a1a1a; }
+    .color-circle.celeste { background: #87ceeb; }
+    .color-circle.naranja-blanco { background: linear-gradient(135deg, #ff6600, #fff); }
+    .color-circle.negro-naranja { background: linear-gradient(135deg, #333, #ff6600); }
+    .color-circle.blanco { background: #ffffff; }
+    
+    .size-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .size-btn { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 40px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; }
+    .size-btn.selected { background: #000000; color: white; border-color: #000000; }
+    .size-btn:hover:not(.selected) { background: #e2e8f0; transform: scale(1.02); }
+    
+    .size-guide-btn { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 40px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; margin-left: 12px; }
+    .size-guide-btn:hover { background: #e2e8f0; }
+    
+    .quantity-selector { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
+    .quantity-selector button { background: #f1f5f9; border: none; width: 40px; height: 40px; border-radius: 40px; font-size: 1.2rem; cursor: pointer; transition: background 0.2s; }
+    .quantity-selector button:hover { background: #e2e8f0; }
+    .quantity-selector span { font-size: 1.2rem; font-weight: 600; min-width: 40px; text-align: center; }
+    
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; }
+    .modal.active { display: flex; }
+    .modal-content { background: white; border-radius: 28px; padding: 30px; max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto; }
+    .modal-content h3 { font-size: 1.5rem; margin-bottom: 20px; color: #0f172a; }
+    .modal-content table { width: 100%; border-collapse: collapse; }
+    .modal-content th, .modal-content td { padding: 12px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+    .modal-content th { background: #f1f5f9; font-weight: 700; }
+    .modal-close { background: #febd69; border: none; padding: 10px 20px; border-radius: 40px; font-weight: 700; cursor: pointer; margin-top: 20px; width: 100%; }
+    
+    .product-category { display: inline-block; background: #e8f0fe; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: #0f3b2c; margin-bottom: 16px; }
+    .product-title { font-size: 2rem; font-weight: 800; margin-bottom: 16px; color: #0f1111; }
+    .product-price { margin: 20px 0; }
+    .price-usd { font-size: 2.2rem; font-weight: 800; color: #B12704; }
+    .old-price-detail {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-right: 12px;
+    }
+    .sale-badge-detail {
+      display: inline-block;
+      background: #dc2626;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 30px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    
+    .free-shipping { background: #e6f7e6; color: #2e7d32; padding: 8px 16px; border-radius: 40px; font-size: 0.8rem; font-weight: 700; display: inline-block; margin: 10px 0; }
+    .policy-badge { background: #fff6e5; padding: 10px 16px; border-radius: 12px; font-size: 0.75rem; color: #b45309; display: inline-block; border-left: 3px solid #dc2626; margin: 15px 0; }
+    
+    .btn-wa-detalle { background: #25D366; border: none; width: 100%; padding: 16px; border-radius: 60px; color: white; font-weight: 700; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 12px; cursor: pointer; transition: 0.2s; margin: 20px 0 12px; }
+    .btn-wa-detalle:hover { background: #128C7E; transform: scale(1.01); }
+    .btn-cart-detalle { background: #FFD814; border: none; width: 100%; padding: 16px; border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.2s; }
+    .btn-cart-detalle:hover { background: #f7ca00; transform: scale(1.01); }
+    
+    .info-sections { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .description-box { background: #f8fafc; border-radius: 20px; padding: 24px; }
+    .description-box h3 { font-size: 1.2rem; margin-bottom: 15px; }
+    .description-box p { color: #334155; line-height: 1.6; }
+    .specs-box { background: #f8fafc; border-radius: 20px; padding: 24px; }
+    .specs-box h3 { font-size: 1.2rem; margin-bottom: 15px; }
+    .specs-list { list-style: none; }
+    .specs-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #e2e8f0; }
+    .specs-list li i { width: 28px; font-size: 1.2rem; color: #febd69; }
+    
+    .care-section { background: #fef9e6; border-radius: 20px; padding: 20px; margin-top: 30px; border: 1px solid #ffe6b3; }
+    .care-section h4 { margin-bottom: 12px; color: #b45309; font-size: 0.9rem; }
+    .care-list { list-style: none; display: flex; flex-wrap: wrap; gap: 20px; }
+    .care-list li { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #92400e; }
+    .care-list li i { color: #e67e22; width: 20px; }
+    
+    .cart-panel { position: fixed; bottom: 100px; right: 30px; background: white; border-radius: 20px; padding: 20px; box-shadow: 0 12px 30px rgba(0,0,0,0.2); z-index: 1000; max-width: 340px; display: none; }
+    .cart-panel.active { display: block; }
+    .cart-items { max-height: 260px; overflow-y: auto; margin-bottom: 15px; }
+    .cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+    .cart-total { font-weight: 700; margin: 15px 0; }
+    .btn-send-order { background: #25D366; color: white; border: none; width: 100%; padding: 12px; border-radius: 30px; font-weight: 700; cursor: pointer; }
+    .clear-cart-btn { background: #ddd; border: none; width: 100%; padding: 8px; border-radius: 20px; margin-top: 10px; cursor: pointer; }
+    .float-wa { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; z-index: 999; text-decoration: none; }
+    
+    @media (max-width: 900px) {
+      .main-container { margin-left: 20px; margin-right: 20px; padding: 0; }
+      .product-detail-grid { grid-template-columns: 1fr; gap: 32px; }
+      .info-sections { grid-template-columns: 1fr; gap: 20px; }
+      .social-sidebar { left: 10px; gap: 8px; }
+      .social-sidebar a { width: 40px; height: 40px; font-size: 20px; }
+      .thumbnail { width: 70px; height: 70px; }
+      .product-title { font-size: 1.6rem; }
+      .price-usd { font-size: 1.8rem; }
+      .promo-banner-detail { font-size: 0.85rem; padding: 10px 14px; }
+    }
+    
+    @media (max-width: 640px) {
+      .main-container {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+        width: 100%;
+        max-width: 100%;
+      }
+      .product-detail-container {
+        padding: 20px;
+        width: 100%;
+        margin: 20px 0;
+        box-sizing: border-box;
+      }
+      .gallery { width: 100%; }
+      .main-image { padding: 20px; width: 100%; aspect-ratio: 1/1; }
+      .main-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
+      .thumbnail-list { justify-content: center; gap: 10px; }
+      .thumbnail { width: 60px; height: 60px; padding: 6px; }
+      .product-info { width: 100%; }
+      .product-title { font-size: 1.4rem; }
+      .price-usd { font-size: 1.6rem; }
+      .old-price-detail { font-size: 1.2rem; }
+      .product-category { font-size: 0.7rem; }
+      .policy-badge { font-size: 0.7rem; }
+      .selector-group label { font-size: 0.85rem; }
+      .size-btn { padding: 8px 18px; font-size: 0.85rem; }
+      .color-btn { padding: 6px 14px; font-size: 0.8rem; }
+      .size-guide-btn { padding: 8px 16px; font-size: 0.75rem; margin-left: 0; margin-top: 10px; width: 100%; justify-content: center; }
+      .quantity-selector button { width: 36px; height: 36px; font-size: 1rem; }
+      .quantity-selector span { font-size: 1rem; min-width: 36px; }
+      .btn-wa-detalle, .btn-cart-detalle { padding: 14px; font-size: 0.9rem; }
+      .description-box, .specs-box { padding: 18px; }
+      .description-box h3, .specs-box h3 { font-size: 1.1rem; }
+      .description-box p { font-size: 0.85rem; }
+      .specs-list li { font-size: 0.85rem; padding: 10px 0; }
+      .specs-list li i { font-size: 1rem; width: 24px; }
+      .care-section { padding: 16px; }
+      .care-section h4 { font-size: 0.85rem; }
+      .care-list { gap: 12px; flex-wrap: wrap; }
+      .care-list li { font-size: 0.75rem; }
+      .footer { padding: 24px 16px; }
+      .map-footer-btn { padding: 10px 20px; font-size: 0.8rem; }
+      .footer p { font-size: 0.75rem; }
+      .navbar { flex-direction: column; align-items: stretch; gap: 12px; padding: 12px 16px; }
+      .logo a { font-size: 1.5rem; text-align: center; display: block; }
+      .cart-icon { align-self: flex-end; }
+      .back-link { justify-content: center; width: 100%; }
+      .social-sidebar {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: auto;
+        right: auto;
+        flex-direction: row;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        padding: 8px 16px;
+        border-radius: 40px;
+        gap: 20px;
+        z-index: 999;
+      }
+      .social-sidebar a { width: 38px; height: 38px; font-size: 18px; }
+      .modal-content { padding: 20px; margin: 16px; width: calc(100% - 32px); }
+      .modal-content h3 { font-size: 1.2rem; }
+      .modal-content th, .modal-content td { padding: 8px; font-size: 0.8rem; }
+      .cart-panel { right: 16px; left: 16px; bottom: 80px; max-width: none; width: auto; }
+      .tasa-notice-detail { font-size: 0.75rem; padding: 8px 12px; flex-wrap: wrap; }
+      .promo-banner-detail { font-size: 0.75rem; padding: 8px 12px; }
+      .promo-banner-detail .price-tag { font-size: 0.9rem; }
+    }
+    
+    @media (max-width: 480px) {
+      .main-container { padding-left: 12px; padding-right: 12px; }
+      .product-detail-container { padding: 16px; }
+      .product-title { font-size: 1.2rem; }
+      .price-usd { font-size: 1.4rem; }
+      .old-price-detail { font-size: 1rem; }
+      .thumbnail { width: 50px; height: 50px; }
+      .size-btn { padding: 6px 14px; font-size: 0.8rem; }
+      .color-btn { padding: 5px 12px; font-size: 0.75rem; }
+      .social-sidebar { bottom: 15px; padding: 6px 14px; gap: 15px; }
+      .social-sidebar a { width: 34px; height: 34px; font-size: 16px; }
+    }
+    
+    .loading { text-align: center; padding: 60px; background: white; border-radius: 24px; }
+  </style>
+</head>
+<body>
+
+<div class="social-sidebar">
+  <a href="https://www.instagram.com/rb13sports" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@rb13sports" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.facebook.com/profile.php?id=61589907843459" target="_blank"><i class="fab fa-facebook-f"></i></a>
+</div>
+
+<header>
+  <div class="navbar">
+    <div class="logo"><a href="index.html">RB13 Market <span>SAN FRANCISCO</span></a></div>
+    <div class="cart-icon" id="cartToggle"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></div>
+    <button class="back-link" id="backToStoreBtn"><i class="fas fa-arrow-left"></i> Volver a la tienda</button>
+  </div>
+</header>
+
+<div class="hero-deportivo main-container">
+  <div class="hero-bg">
+    <span class="hero-badge">⚡ RB13 Market</span>
+    <h1 id="heroTitle">Producto Premium</h1>
+    
+    <div class="promo-banner-detail" style="display:inline-block; max-width:90%; margin-top:8px;">
+      <i class="fas fa-fire"></i>
+      <strong>🔥 ¡OFERTA DE APERTURA!</strong>
+      22.22% de descuento en <span class="highlight">Zapatos de Fútbol</span>
+      <span class="old-price">$45.00</span>
+      <span class="price-tag">$35.00 USD</span>
+      <span style="font-weight:400; font-size:0.75rem;">Petrolero · Lagarto · Elegance</span>
+    </div>
+    
+    <div style="margin-top:10px;">
+      <span class="tasa-notice-detail" style="display:inline-flex; background:rgba(255,248,225,0.9); border-left-color:#febd69;">
+        <i class="fas fa-info-circle"></i> 💳 Precios calculados a tasa BCV del día · Los precios se muestran en dólares (USD)
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="main-container">
+  <div id="productDetailContainer"><div class="loading">Cargando información del producto...</div></div>
+</div>
+
+<div class="cart-panel" id="cartPanel">
+  <h4>🛒 Tu pedido</h4>
+  <div class="cart-items" id="cartItemsList"></div>
+  <div class="cart-total" id="cartTotal">Total: $0.00</div>
+  <button class="btn-send-order" id="sendOrderBtn"><i class="fab fa-whatsapp"></i> Enviar pedido</button>
+  <button class="clear-cart-btn" id="clearCartBtn">Vaciar carrito</button>
+</div>
+
+<a href="#" class="float-wa" id="floatWhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<footer class="footer">
+  <a href="https://maps.app.goo.gl/X7b8CNGvHaxv7P7b9" target="_blank" class="map-footer-btn">
+    <i class="fas fa-map-marker-alt"></i> 📍 Ver ubicación en Google Maps
+  </a>
+  <p>📍 RB13 Market - Av. Principal, San Francisco, Zulia, Venezuela | Contacto: +58 422 015 1595</p>
+  <p><i class="fas fa-clock"></i> Garantía de cambio por talla o defecto: máximo 48 horas tras la entrega.</p>
+  <p>© 2026 RB13 Market · Pasión por el fútbol · Hecho en el Zulia 🇻🇪</p>
+</footer>
+
+<!-- MODAL GUÍA DE TALLAS -->
+<div class="modal" id="sizeModal">
+  <div class="modal-content">
+    <h3><i class="fas fa-ruler-combined"></i> Guía de Tallas</h3>
+    <table>
+      <thead>
+        <tr><th>EUR</th><th>US (Men)</th><th>CM (Largo del pie)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>39</td><td>6.5</td><td>24.5 cm</td></tr>
+        <tr><td>40</td><td>7</td><td>25.0 cm</td></tr>
+        <tr><td>41</td><td>8</td><td>26.0 cm</td></tr>
+        <tr><td>42</td><td>8.5</td><td>26.5 cm</td></tr>
+        <tr><td>43</td><td>9.5</td><td>27.5 cm</td></tr>
+        <tr><td>44</td><td>10</td><td>28.0 cm</td></tr>
+        <tr><td>45</td><td>11</td><td>29.0 cm</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 15px; font-size: 0.8rem; color: #64748b;">💡 Mide tu pie desde el talón hasta el dedo más largo. Si estás entre tallas, elige la siguiente.</p>
+    <button class="modal-close" id="closeModalBtn">Cerrar</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  "use strict";
+  
+  const WHATSAPP_PHONE = "584220151595";
+  const PLACEHOLDER_IMAGE = "https://placehold.co/800x800/e2e8f0/1e293b?text=RB13";
+  
+  // ==================== BASE DE DATOS DE PRODUCTOS ====================
+  const productos = [
+    // ZAPATOS DE FÚTBOL (Turf e Indoor) - PRECIO CON DESCUENTO $35.00
+    { id: 18, nombre: "RB13 - Petrolero", subtitulo: "Resistencia pura para el terreno zuliano", precio: 35.00, oldPrice: 45.00, onSale: true, tipo: "zapato", categoriaTexto: "Zapatos de Fútbol", tallas: ["39","40","41","42","43","44"], descripcion: "Resistencia pura para el terreno zuliano. Suela de tacos tipo Turf (TF) diseñada para máxima tracción en grama artificial. El material sintético reforzado garantiza una larga vida útil. 🔥 OFERTA DE APERTURA: 22.22% de descuento.", especificaciones: { material: "Sintético reforzado", suela: "Goma de alta tracción (Turf)", peso: "Resistente (aprox 260g)" }, freeShipping: true,
+      colores: [
+        { nombre: "Naranja-Neon", nombreAmigable: "Naranja Neón", clase: "naranja-neon", base: "Petrolero-Naranja-Neon" },
+        { nombre: "Negro-Blanco", nombreAmigable: "Negro/Blanco", clase: "negro-blanco", base: "Petrolero-Negro-Blanco" },
+        { nombre: "Azul-Navy", nombreAmigable: "Azul Navy", clase: "azul-navy", base: "Petrolero-Azul-Navy" }
+      ] },
+    { id: 19, nombre: "RB13 - Lagarto", subtitulo: "Agilidad explosiva", precio: 35.00, oldPrice: 45.00, onSale: true, tipo: "zapato", categoriaTexto: "Zapatos de Fútbol", tallas: ["39","40","41","42","43","44"], descripcion: "Agilidad explosiva. Diseño ligero y aerodinámico con textura 'Lagarto' para cambios de ritmo letales. Ideal para jugadores rápidos y habilidosos. 🔥 OFERTA DE APERTURA: 22.22% de descuento.", especificaciones: { material: "Sintético ultraligero", suela: "Goma de alta tracción (Indoor/Turf)", peso: "Ultra ligero (aprox 200g)" }, freeShipping: true,
+      colores: [
+        { nombre: "Azul", nombreAmigable: "Azul", clase: "azul", base: "Lagarto-Azul" },
+        { nombre: "Negro", nombreAmigable: "Negro", clase: "negro", base: "Lagarto-Negro" },
+        { nombre: "Celeste", nombreAmigable: "Celeste", clase: "celeste", base: "Lagarto-Celeste" }
+      ] },
+    { id: 20, nombre: "RB13 - Elegance", subtitulo: "Alta gama para fútbol sala", precio: 35.00, oldPrice: 45.00, onSale: true, tipo: "zapato", categoriaTexto: "Zapatos de Fútbol", tallas: ["39","40","41","42","43","44"], descripcion: "Calzado de alta gama para fútbol sala. Diseño refinado con microfibra premium para un control total del balón. La suela de alta tracción te brindará estabilidad en cada movimiento. 🔥 OFERTA DE APERTURA: 22.22% de descuento.", especificaciones: { material: "Sintético reforzado", suela: "Goma de alta tracción (Indoor)", peso: "Ligero (aprox 230g)" }, freeShipping: true,
+      colores: [
+        { nombre: "Naranja-Blanco", nombreAmigable: "Naranja/Blanco", clase: "naranja-blanco", base: "Elegance-Naranja-Blanco" },
+        { nombre: "Negro-Blanco", nombreAmigable: "Negro/Blanco", clase: "negro-blanco", base: "Elegance-Negro-Blanco" },
+        { nombre: "Negro-Naranja", nombreAmigable: "Negro/Naranja", clase: "negro-naranja", base: "Elegance-Negro-Naranja" },
+        { nombre: "Blanco", nombreAmigable: "Blanco", clase: "blanco", base: "Elegance-Blanco" }
+      ] },
+    
+    // CAMISETAS TEMPORADA ACTUAL (PRECIO $23.00)
+    { id: 5, nombre: "Colombia 2026 #7 Luis Díaz", subtitulo: "La nueva generación", precio: 23.00, tipo: "camiseta", categoriaTexto: "Selecciones", tallas: ["S","M","L","XL"], imagenesBase: "Col", descripcion: "Camiseta oficial de la selección Colombia 2026. Personalizada con el dorsal de Luis Díaz #7. Tecnología avanzada para máximo rendimiento.", especificaciones: { material: "100% Poliéster Dry-Fit avanzado", ajuste: "Corte atlético", peso: "Ultra ligera (aprox 155g)" }, freeShipping: true, colores: null },
+    { id: 6, nombre: "R. Madrid 25/26 #10 Mbappe", subtitulo: "El nuevo rey del Bernabéu", precio: 23.00, tipo: "camiseta", categoriaTexto: "LaLiga", tallas: ["S","M","L","XL"], imagenesBase: "Madrid", descripcion: "Camiseta oficial del Real Madrid temporada 2025/26 con el dorsal de Kylian Mbappé #10.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true, colores: null },
+    { id: 7, nombre: "R. Madrid 25/26 #8 Valverde", subtitulo: "Corazón y garra", precio: 23.00, tipo: "camiseta", categoriaTexto: "LaLiga", tallas: ["S","M","L","XL"], imagenesBase: "Mval", descripcion: "Camiseta oficial del Real Madrid temporada 2025/26 con el dorsal de Federico Valverde #8.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true, colores: null },
+    { id: 8, nombre: "R. Madrid 25/26 #11 Rodrygo", subtitulo: "Magia brasileña", precio: 23.00, tipo: "camiseta", categoriaTexto: "LaLiga", tallas: ["S","M","L","XL"], imagenesBase: "Mrod", descripcion: "Camiseta oficial del Real Madrid temporada 2025/26 con el dorsal de Rodrygo #11.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true, colores: null },
+    { id: 10, nombre: "Inter Miami 25/26 #10 MESSI", subtitulo: "La magia en la MLS", precio: 23.00, tipo: "camiseta", categoriaTexto: "MLS", tallas: ["S","M","L","XL"], imagenesBase: "Imes", descripcion: "Camiseta oficial del Inter Miami temporada 2025/26 con el dorsal de Lionel Messi #10.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ultra ligera (aprox 160g)" }, freeShipping: true, colores: null },
+    { id: 14, nombre: "Liverpool 25/26 #10 Mac Allister", subtitulo: "El cerebro argentino", precio: 23.00, tipo: "camiseta", categoriaTexto: "Premier League", tallas: ["S","M","L","XL"], imagenesBase: "Lmac", descripcion: "Camiseta oficial del Liverpool temporada 2025/26 con el dorsal de Alexis Mac Allister #10.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true, colores: null },
+    { id: 15, nombre: "PSG 25/26 #10 O. Dembele", subtitulo: "Velocidad francesa", precio: 23.00, tipo: "camiseta", categoriaTexto: "Ligue 1", tallas: ["S","M","L","XL"], imagenesBase: "PSGd", descripcion: "Camiseta oficial del PSG temporada 2025/26 con el dorsal de Ousmane Dembélé #10.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ultra ligera (aprox 160g)" }, freeShipping: true, colores: null },
+    { id: 16, nombre: "Newcastle Utd. 25/26 #8 Tonali", subtitulo: "El regreso de un gigante", precio: 23.00, tipo: "camiseta", categoriaTexto: "Premier League", tallas: ["S","M","L","XL"], imagenesBase: "Nton", descripcion: "Camiseta oficial del Newcastle United temporada 2025/26 con el dorsal de Sandro Tonali #8.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true, colores: null },
+    { id: 17, nombre: "Bayern Múnich 25/26 #9 Kane", subtitulo: "El goleador inglés", precio: 23.00, tipo: "camiseta", categoriaTexto: "Bundesliga", tallas: ["S","M","L","XL"], imagenesBase: "Bayer", descripcion: "Camiseta oficial del Bayern Múnich temporada 2025/26 con el dorsal de Harry Kane #9.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true, colores: null },
+    
+    // CAMISETAS RETRO (PRECIO $27.00)
+    { id: 1, nombre: "Man. United 07/08 #7 Ronaldo (Retro)", subtitulo: "La leyenda empezó aquí", precio: 27.00, tipo: "camiseta", categoriaTexto: "Retro Premier League", tallas: ["S","M","L","XL"], imagenesBase: "ManUtd", descripcion: "Camiseta retro del Manchester United temporada 2007/08. Personalizada con el dorsal de Cristiano Ronaldo #7.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ultra ligera (aprox 160g)" }, freeShipping: true, colores: null },
+    { id: 2, nombre: "R. Madrid 11/12 #7 Ronaldo (Retro Dorada)", subtitulo: "La temporada de los récords", precio: 27.00, tipo: "camiseta", categoriaTexto: "Retro LaLiga", tallas: ["S","M","L","XL"], imagenesBase: "RealM", descripcion: "Camiseta retro del Real Madrid temporada 2011/12. Edición especial detalles dorados.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true, colores: null },
+    { id: 3, nombre: "Barcelona 08/09 #10 MESSI (Retro Sextete)", subtitulo: "El año del sextete histórico", precio: 27.00, tipo: "camiseta", categoriaTexto: "Retro LaLiga", tallas: ["S","M","L","XL"], imagenesBase: "Barca08", descripcion: "Camiseta retro del FC Barcelona temporada 2008/09. Personalizada con el dorsal de Lionel Messi #10.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ultra ligera (aprox 160g)" }, freeShipping: true, colores: null },
+    { id: 4, nombre: "Milan AC 06/07 #22 KAKA (Retro)", subtitulo: "El mejor del mundo 2007", precio: 27.00, tipo: "camiseta", categoriaTexto: "Retro Serie A", tallas: ["S","M","L","XL"], imagenesBase: "ACM", descripcion: "Camiseta retro del AC Milan temporada 2006/07. Personalizada con el dorsal de Kaká #22.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true, colores: null },
+    { id: 9, nombre: "Argentina 2006 #19 MESSI (Retro Debut)", subtitulo: "El debut del mejor del mundo", precio: 27.00, tipo: "camiseta", categoriaTexto: "Retro Selecciones", tallas: ["S","M","L","XL"], imagenesBase: "Arg", descripcion: "Camiseta retro de Argentina del Mundial 2006. Personalizada con el dorsal #19 de Lionel Messi.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte clásico", peso: "Ligera (aprox 170g)" }, freeShipping: true, colores: null },
+    { id: 11, nombre: "R. Madrid 06/07 #3 R. Carlos (Retro)", subtitulo: "El cañón de la selección", precio: 27.00, tipo: "camiseta", categoriaTexto: "Retro LaLiga", tallas: ["S","M","L","XL"], imagenesBase: "Mcar", descripcion: "Camiseta retro del Real Madrid temporada 2006/07 con el dorsal de Roberto Carlos #3.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte clásico", peso: "Ligera (aprox 170g)" }, freeShipping: true, colores: null },
+    { id: 12, nombre: "R. Madrid 06/07 #23 Beckham (Retro)", subtitulo: "El ídolo inglés", precio: 27.00, tipo: "camiseta", categoriaTexto: "Retro LaLiga", tallas: ["S","M","L","XL"], imagenesBase: "Mbec", descripcion: "Camiseta retro del Real Madrid temporada 2006/07 con el dorsal de David Beckham #23.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte clásico", peso: "Ligera (aprox 170g)" }, freeShipping: true, colores: null },
+    { id: 13, nombre: "Barcelona 13/14 #11 NEYMAR (Retro)", subtitulo: "La era del brasileño", precio: 27.00, tipo: "camiseta", categoriaTexto: "Retro LaLiga", tallas: ["S","M","L","XL"], imagenesBase: "Bney", descripcion: "Camiseta retro del FC Barcelona temporada 2013/14 con el dorsal de Neymar Jr #11.", especificaciones: { material: "100% Poliéster Dry-Fit", ajuste: "Corte Slim Fit", peso: "Ligera (aprox 165g)" }, freeShipping: true, colores: null },
+    
+    // ZAPATOS DEPORTIVOS (Alibaba - SAIFEINU) - PRECIO $35.00
+    { id: 22, nombre: "SAIFEINU Casual Fly Knit", subtitulo: "Estilo casual con tecnología Fly Knit", precio: 35.00, tipo: "zapato", categoriaTexto: "Zapatos Deportivos", tallas: ["39","40","41","42","43","44"], descripcion: "Zapatos casuales con tecnología Fly Knit. Color Plata/Negro. Diseño moderno, ligero y transpirable. Perfectos para el día a día y entrenamiento ligero.", especificaciones: { material: "Fly Knit transpirable", suela: "Goma EVA ligera", peso: "Ultra ligero (aprox 200g)" }, freeShipping: true, colores: null },
+    { id: 23, nombre: "SAIFEINU TPU Running", subtitulo: "Rendimiento y estabilidad para corredores", precio: 35.00, tipo: "zapato", categoriaTexto: "Zapatos Deportivos", tallas: ["39","40","41","42","43","44"], descripcion: "Zapatilla deportiva con tecnología TPU para máxima estabilidad. Color Plata/Azul. Ideal para running y entrenamientos de alta intensidad.", especificaciones: { material: "TPU y malla transpirable", suela: "Goma de alta resistencia", peso: "Ligero (aprox 240g)" }, freeShipping: true, colores: null },
+    { id: 24, nombre: "SAIFEINU Spring Cost-Effective", subtitulo: "Calidad a precio accesible", precio: 35.00, tipo: "zapato", categoriaTexto: "Zapatos Deportivos", tallas: ["39","40","41","42","43","44"], descripcion: "Calzado deportivo de alta calidad a precio accesible. Color Navy/Fluorescente. Diseño robusto con amortiguación avanzada.", especificaciones: { material: "Sintético premium y malla", suela: "Goma antideslizante", peso: "Ligero (aprox 250g)" }, freeShipping: true, colores: null },
+    { id: 25, nombre: "SAIFEINU Cushion Lightweight", subtitulo: "Amortiguación máxima sin peso extra", precio: 35.00, tipo: "zapato", categoriaTexto: "Zapatos Deportivos", tallas: ["39","40","41","42","43","44"], descripcion: "Zapatos deportivos con sistema de amortiguación avanzado. Color Light Gray/Negro. Perfectos para largas caminatas y entrenamiento diario.", especificaciones: { material: "Malla técnica y espuma EVA", suela: "Goma antideslizante", peso: "Ultra ligero (aprox 220g)" }, freeShipping: true, colores: null },
+    
+    // GORRAS - $15.99
+    { id: 21, nombre: "RB13 - Gorra", subtitulo: "Protección solar con estilo", precio: 15.99, tipo: "gorra", categoriaTexto: "Gorras", tallas: ["Única"], imagenesBase: "GRB13", descripcion: "Gorra deportiva RB13 de alta calidad. Protección solar y estilo para tus entrenamientos o día a día.", especificaciones: { material: "100% Poliéster", ajuste: "Ajuste trasero", peso: "Ligero (aprox 80g)" }, freeShipping: true, colores: null }
+  ];
+  
+  // ==================== LOCALSTORAGE CARRITO ====================
+  let cart = [];
+  
+  function guardarCarrito() { localStorage.setItem('rb13_cart', JSON.stringify(cart)); }
+  function cargarCarrito() { const g = localStorage.getItem('rb13_cart'); cart = g ? JSON.parse(g) : []; actualizarContador(); actualizarPanel(); }
+  function actualizarContador() { const c = document.getElementById('cartCount'); if(c) c.textContent = cart.reduce((s,i)=>s+i.quantity,0); }
+  function actualizarPanel() {
+    const items = document.getElementById('cartItemsList');
+    const totalSpan = document.getElementById('cartTotal');
+    if(!items) return;
+    if(cart.length===0){ items.innerHTML='<p style="text-align:center;">No hay productos.</p>'; totalSpan.textContent='Total: $0.00'; return; }
+    let html='', total=0;
+    cart.forEach(i => { const sub=i.price*i.quantity; total+=sub; html+=`<div class="cart-item"><span><strong>${i.name}</strong> (${i.color}, Talla: ${i.talla}) x${i.quantity}</span><span>$${sub.toFixed(2)} <i class="fas fa-trash" style="cursor:pointer;color:#dc2626;" onclick="window.eliminarDelCarrito(${i.id})"></i></span></div>`; });
+    items.innerHTML=html;
+    totalSpan.textContent=`Total: $${total.toFixed(2)}`;
+  }
+  window.eliminarDelCarrito = function(id) { cart = cart.filter(i=>i.id!==id); guardarCarrito(); actualizarContador(); actualizarPanel(); };
+  function agregarAlCarrito(p, color, talla, cant) { 
+    const ex=cart.find(i=>i.id===p.id && i.color===color && i.talla===talla); 
+    if(ex) ex.quantity+=cant; 
+    else cart.push({id:p.id, name:p.nombre, price:p.precio, quantity:cant, color:color, talla:talla}); 
+    guardarCarrito(); actualizarContador(); actualizarPanel(); 
+    alert(`✅ ${p.nombre} (${color}, Talla: ${talla}) añadido al carrito`); 
+  }
+  
+  // ==================== FUNCIÓN ENVIAR PEDIDO ====================
+  function enviarPedido() {
+    if (cart.length === 0) {
+      alert('Carrito vacío');
+      return;
+    }
+    let itemsText = '';
+    cart.forEach((item, idx) => {
+      const subtotal = (item.price * item.quantity).toFixed(2);
+      itemsText += `${idx + 1}. ${item.name} - Color: ${item.color} - Talla: ${item.talla} - $${subtotal}\n`;
+    });
+    const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0).toFixed(2);
+    const mensaje = `¡Hola RB13 Market! Mi pedido:\n\n${itemsText}\nTotal: $${total}`;
+    window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(mensaje)}`, '_blank');
+  }
+  
+  function vaciarCarrito() { cart=[]; guardarCarrito(); actualizarContador(); actualizarPanel(); document.getElementById('cartPanel')?.classList.remove('active'); }
+  
+  // ==================== DETALLE DINÁMICO ====================
+  function getProductIdFromURL() { const p = new URLSearchParams(window.location.search); const id = p.get('id'); if(id && !isNaN(parseInt(id)) && productos.some(p=>p.id===parseInt(id))) return parseInt(id); return 1; }
+  function encodeUrl(u) { if(!u) return ''; if(u.startsWith('http')) return u; return u.split('/').map(p=>encodeURIComponent(p)).join('/'); }
+  
+  function generarGaleria(producto, colorIndex = 0) {
+    const imagenes = [];
+    if (producto.colores) {
+      const baseName = producto.colores[colorIndex].base;
+      for (let i = 1; i <= 3; i++) {
+        imagenes.push(`images/${baseName}${i}.jpeg`);
+      }
+    } else if (producto.imagenesBase) {
+      for (let i = 1; i <= 3; i++) {
+        imagenes.push(`images/${producto.imagenesBase}${i}.jpeg`);
+      }
+    } else {
+      // Fallback para zapatos deportivos SAIFEINU
+      const id = producto.id;
+      for (let i = 1; i <= 3; i++) {
+        imagenes.push(`images/Deportivo${id - 21}${i}.jpeg`);
+      }
+    }
+    return imagenes;
+  }
+  
+  let currentProduct = null;
+  let currentColorIndex = 0;
+  let selectedColor = null;
+  let selectedColorAmigable = null;
+  let selectedSize = null;
+  let quantity = 1;
+  let currentGaleria = [];
+  
+  function cambiarImagenPrincipal(nuevaImagen) {
+    const mainImgContainer = document.getElementById('mainImage');
+    if (!mainImgContainer) return;
+    const img = mainImgContainer.querySelector('img');
+    if (img) {
+      img.style.opacity = '0.5';
+      setTimeout(() => {
+        img.src = nuevaImagen;
+        img.onload = () => { img.style.opacity = '1'; };
+        img.onerror = () => { img.src = PLACEHOLDER_IMAGE; img.style.opacity = '1'; };
+      }, 150);
+    }
+  }
+  
+  function updateGalleryForColor(colorIndex) {
+    currentGaleria = generarGaleria(currentProduct, colorIndex);
+    const mainImg = document.getElementById('mainImage');
+    const thumbnailContainer = document.getElementById('thumbnailList');
+    if (mainImg && thumbnailContainer) {
+      mainImg.querySelector('img').src = encodeUrl(currentGaleria[0]);
+      thumbnailContainer.innerHTML = currentGaleria.map((img, idx) => `
+        <div class="thumbnail ${idx === 0 ? 'active' : ''}" data-img="${encodeUrl(img)}">
+          <img src="${encodeUrl(img)}" onerror="this.src='${PLACEHOLDER_IMAGE}'">
+        </div>
+      `).join('');
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.addEventListener('click', function() {
+          document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          cambiarImagenPrincipal(this.dataset.img);
+        });
+      });
+    }
+  }
+  
+  function render() {
+    const container = document.getElementById('productDetailContainer');
+    const id = getProductIdFromURL();
+    currentProduct = productos.find(p => p.id === id);
+    if (!currentProduct) { container.innerHTML = '<div class="loading">Producto no encontrado.</div>'; return; }
+    
+    document.getElementById('heroTitle').innerText = currentProduct.nombre;
+    selectedSize = currentProduct.tallas[0];
+    
+    if (currentProduct.colores) {
+      currentColorIndex = 0;
+      selectedColor = currentProduct.colores[0].nombre;
+      selectedColorAmigable = currentProduct.colores[0].nombreAmigable;
+      currentGaleria = generarGaleria(currentProduct, 0);
+    } else {
+      selectedColor = null;
+      selectedColorAmigable = null;
+      currentGaleria = generarGaleria(currentProduct);
+    }
+    
+    const sizeButtonsHtml = currentProduct.tallas.map(t => `<button class="size-btn ${selectedSize === t ? 'selected' : ''}" data-size="${t}">${t}</button>`).join('');
+    const freeShippingHtml = currentProduct.freeShipping ? '<div class="free-shipping"><i class="fas fa-truck"></i> 🚚 DELIVERY GRATIS en San Francisco y Maracaibo</div>' : '';
+    
+    const sizeGuideHtml = (currentProduct.tipo === 'zapato') 
+      ? `<button class="size-guide-btn" id="sizeGuideBtn"><i class="fas fa-chart-simple"></i> Guía de Tallas</button>` 
+      : '';
+    
+    let colorButtonsHtml = '';
+    if (currentProduct.colores) {
+      colorButtonsHtml = `
+        <div class="selector-group">
+          <label><i class="fas fa-palette"></i> Selecciona color:</label>
+          <div class="color-buttons" id="colorButtonsContainer">
+            ${currentProduct.colores.map((color, idx) => `
+              <button class="color-btn ${idx === 0 ? 'selected' : ''}" data-color="${color.nombre}" data-color-amigable="${color.nombreAmigable}" data-color-index="${idx}">
+                <span class="color-circle ${color.clase}"></span> ${color.nombreAmigable}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+    
+    let priceHtml = '';
+    if (currentProduct.onSale) {
+      priceHtml = `
+        <div class="product-price">
+          <span class="old-price-detail">$${currentProduct.oldPrice.toFixed(2)}</span>
+          <span class="price-usd">$${currentProduct.precio.toFixed(2)} USD</span>
+          <span class="sale-badge-detail">🔥 -22% OFERTA</span>
+        </div>
+      `;
+    } else {
+      priceHtml = `
+        <div class="product-price">
+          <span class="price-usd">$${currentProduct.precio.toFixed(2)} USD</span>
+        </div>
+      `;
+    }
+    
+    let specsHtml = '';
+    if (currentProduct.tipo === 'zapato') {
+      specsHtml = `<ul class="specs-list"><li><i class="fas fa-shoe-prints"></i> <strong>Material:</strong> ${currentProduct.especificaciones.material}</li><li><i class="fas fa-futbol"></i> <strong>Suela:</strong> ${currentProduct.especificaciones.suela}</li><li><i class="fas fa-weight-hanging"></i> <strong>Peso:</strong> ${currentProduct.especificaciones.peso}</li></ul>`;
+    } else {
+      specsHtml = `<ul class="specs-list"><li><i class="fas fa-tshirt"></i> <strong>Material:</strong> ${currentProduct.especificaciones.material}</li><li><i class="fas fa-cut"></i> <strong>Corte/Ajuste:</strong> ${currentProduct.especificaciones.ajuste}</li><li><i class="fas fa-weight-hanging"></i> <strong>Peso:</strong> ${currentProduct.especificaciones.peso}</li></ul>`;
+    }
+    
+    container.innerHTML = `
+      <div class="product-detail-container">
+        <div class="product-detail-grid">
+          <div class="gallery">
+            <div class="main-image" id="mainImage">
+              <img src="${encodeUrl(currentGaleria[0] || PLACEHOLDER_IMAGE)}" onerror="this.src='${PLACEHOLDER_IMAGE}'">
+            </div>
+            <div class="thumbnail-list" id="thumbnailList">
+              ${currentGaleria.map((img, idx) => `
+                <div class="thumbnail ${idx === 0 ? 'active' : ''}" data-img="${encodeUrl(img)}">
+                  <img src="${encodeUrl(img)}" onerror="this.src='${PLACEHOLDER_IMAGE}'">
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">⚡ ${currentProduct.categoriaTexto}</div>
+            <h1 class="product-title">${currentProduct.nombre}</h1>
+            ${priceHtml}
+            ${freeShippingHtml}
+            <div class="policy-badge"><i class="fas fa-clock"></i> Garantía de cambio por talla o defecto: máximo 48 horas tras la entrega</div>
+            ${colorButtonsHtml}
+            <div class="selector-group">
+              <label><i class="fas fa-ruler-combined"></i> Selecciona tu talla:</label>
+              <div class="size-buttons" id="sizeButtonsContainer">${sizeButtonsHtml}</div>
+              ${sizeGuideHtml}
+            </div>
+            <div class="selector-group">
+              <label><i class="fas fa-box"></i> Cantidad:</label>
+              <div class="quantity-selector">
+                <button id="decQty">−</button>
+                <span id="qtyVal">1</span>
+                <button id="incQty">+</button>
+              </div>
+            </div>
+            <button class="btn-wa-detalle" id="waBtn"><i class="fab fa-whatsapp"></i> Pedir por WhatsApp</button>
+            <button class="btn-cart-detalle" id="cartBtn"><i class="fas fa-cart-plus"></i> Añadir al Carrito</button>
+          </div>
+        </div>
+        <div class="info-sections">
+          <div class="description-box"><h3><i class="fas fa-pen-fancy"></i> Descripción</h3><p>${currentProduct.descripcion}</p></div>
+          <div class="specs-box"><h3><i class="fas fa-clipboard-list"></i> Especificaciones Técnicas</h3>${specsHtml}</div>
+        </div>
+        <div class="care-section"><h4><i class="fas fa-hand-sparkles"></i> ⚠️ Instrucciones de Cuidado</h4><ul class="care-list"><li><i class="fas fa-water"></i> Lavar a mano o con paño húmedo</li><li><i class="fas fa-ban"></i> No sumergir en agua</li><li><i class="fas fa-sun"></i> Secar a la sombra</li><li><i class="fas fa-tag"></i> Guardar en lugar seco</li></ul></div>
+      </div>
+    `;
+    
+    document.querySelectorAll('.thumbnail').forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        cambiarImagenPrincipal(this.dataset.img);
+      });
+    });
+    
+    if (currentProduct.colores) {
+      document.querySelectorAll('.color-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          selectedColor = btn.getAttribute('data-color');
+          selectedColorAmigable = btn.getAttribute('data-color-amigable');
+          const colorIndex = parseInt(btn.getAttribute('data-color-index'));
+          currentColorIndex = colorIndex;
+          updateGalleryForColor(colorIndex);
+        });
+      });
+    }
+    
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedSize = btn.getAttribute('data-size');
+      });
+    });
+    
+    const modal = document.getElementById('sizeModal');
+    const guideBtn = document.getElementById('sizeGuideBtn');
+    const closeModal = document.getElementById('closeModalBtn');
+    
+    if (currentProduct.tipo === 'zapato') {
+      if (guideBtn) {
+        guideBtn.addEventListener('click', () => modal.classList.add('active'));
+      }
+      if (closeModal) {
+        closeModal.addEventListener('click', () => modal.classList.remove('active'));
+      }
+      modal?.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+    } else {
+      if (modal) modal.classList.remove('active');
+    }
+    
+    const qtySpan = document.getElementById('qtyVal');
+    document.getElementById('decQty')?.addEventListener('click', () => { if(quantity>1){quantity--; qtySpan.innerText = quantity;} });
+    document.getElementById('incQty')?.addEventListener('click', () => { quantity++; qtySpan.innerText = quantity; });
+    
+    document.getElementById('waBtn')?.addEventListener('click', () => {
+      if (currentProduct.colores && !selectedColorAmigable) { alert('⚠️ Selecciona un color'); return; }
+      if (!selectedSize) { alert('⚠️ Selecciona una talla'); return; }
+      const colorText = currentProduct.colores ? ` en color ${selectedColorAmigable}` : '';
+      const mensaje = `¡Hola RB13 Market! Me interesa la ${currentProduct.nombre}${colorText} en Talla ${selectedSize}. ¿Tienen disponibilidad?`;
+      window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(mensaje)}`, '_blank');
+    });
+    
+    document.getElementById('cartBtn')?.addEventListener('click', () => {
+      if (currentProduct.colores && !selectedColorAmigable) { alert('⚠️ Selecciona un color'); return; }
+      if (!selectedSize) { alert('⚠️ Selecciona una talla'); return; }
+      const colorParaCarrito = currentProduct.colores ? selectedColorAmigable : 'Standard';
+      agregarAlCarrito(currentProduct, colorParaCarrito, selectedSize, quantity);
+    });
+  }
+  
+  function init() {
+    cargarCarrito();
+    render();
+    document.getElementById('cartToggle')?.addEventListener('click', () => document.getElementById('cartPanel')?.classList.toggle('active'));
+    document.getElementById('sendOrderBtn')?.addEventListener('click', enviarPedido);
+    document.getElementById('clearCartBtn')?.addEventListener('click', vaciarCarrito);
+    document.getElementById('backToStoreBtn')?.addEventListener('click', () => window.location.href = 'index.html');
+    document.getElementById('floatWhatsApp').href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent('Hola RB13 Market, quisiera más información.')}`;
+    document.addEventListener('click', function(e) { const p = document.getElementById('cartPanel'); const t = document.getElementById('cartToggle'); if(p?.classList.contains('active') && !p.contains(e.target) && !t.contains(e.target)) p.classList.remove('active'); });
+  }
+  
+  init();
+})();
+</script>
+</body>
+</html>
