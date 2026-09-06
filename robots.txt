@@ -1,0 +1,11 @@
+# RB13 Sports - robots.txt
+# Permite a todos los bots rastrear todo el sitio
+User-agent: *
+Allow: /
+
+# No indexar páginas con parámetros de tracking
+Disallow: /*?utm_*
+Disallow: /*?fbclid*
+
+# Ubicación del sitemap
+Sitemap: https://rb13sports.com/sitemap.xml
